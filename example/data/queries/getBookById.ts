@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const QUERY = gql`query getBookById($bookId: Float!){
+export const GET_BOOK_BY_ID = gql`query getBookById($bookId: Float!){
     getBookById(bookId: $bookId){
         author
         bookCategory{

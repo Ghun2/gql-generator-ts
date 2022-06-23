@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const MUTATION = gql`mutation createPage($CreatePageRequestSchema: CreatePageRequestSchema!){
+export const CREATE_PAGE = gql`mutation createPage($CreatePageRequestSchema: CreatePageRequestSchema!){
     createPage(CreatePageRequestSchema: $CreatePageRequestSchema){
         bookId
         createdTime

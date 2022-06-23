@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const MUTATION = gql`mutation deleteBookById($DeleteBookByIdRequestSchema: DeleteBookByIdRequestSchema!){
+export const DELETE_BOOK_BY_ID = gql`mutation deleteBookById($DeleteBookByIdRequestSchema: DeleteBookByIdRequestSchema!){
     deleteBookById(DeleteBookByIdRequestSchema: $DeleteBookByIdRequestSchema){
         author
         bookCategory{

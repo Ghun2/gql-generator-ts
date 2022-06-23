@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const MUTATION = gql`mutation createBook($CreateBookRequestSchema: CreateBookRequestSchema!){
+export const CREATE_BOOK = gql`mutation createBook($CreateBookRequestSchema: CreateBookRequestSchema!){
     createBook(CreateBookRequestSchema: $CreateBookRequestSchema){
         author
         bookCategory{

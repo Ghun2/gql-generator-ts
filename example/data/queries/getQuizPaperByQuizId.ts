@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const QUERY = gql`query getQuizPaperByQuizId($quizId: String!){
+export const GET_QUIZ_PAPER_BY_QUIZ_ID = gql`query getQuizPaperByQuizId($quizId: String!){
     getQuizPaperByQuizId(quizId: $quizId){
         bookId
         contentsAgeType{

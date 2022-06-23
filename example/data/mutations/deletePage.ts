@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const MUTATION = gql`mutation deletePage($DeletePageRequestSchema: DeletePageRequestSchema!){
+export const DELETE_PAGE = gql`mutation deletePage($DeletePageRequestSchema: DeletePageRequestSchema!){
     deletePage(DeletePageRequestSchema: $DeletePageRequestSchema){
         bookId
         createdTime

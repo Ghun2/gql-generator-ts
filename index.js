@@ -229,7 +229,7 @@ const generateFile = (obj, description) => {
           break;
       }
       const importStr = "import { gql } from '@apollo/client';";
-      const exportConstStr = `export const ${camelToUnderscore(queryName)} = gql\``;
+      const exportConstStr = `export const ${camelToUnderscore(type)} = gql\``;
       const params = varsToTypesStr && varsToTypesStr !== '' ? `(${varsToTypesStr})` : '';
       query = `${importStr}\n${exportConstStr}${queryName || description.toLowerCase()} ${type}${params}{\n${query}\n}\``;
       fs.writeFileSync(path.join(writeFolder, `./${type}.${fileExtension}`), query);

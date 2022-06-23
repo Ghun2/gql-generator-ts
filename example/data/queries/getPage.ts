@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const QUERY = gql`query getPage($bookId: Float!, $pageIndex: Float!){
+export const GET_PAGE = gql`query getPage($bookId: Float!, $pageIndex: Float!){
     getPage(bookId: $bookId, pageIndex: $pageIndex){
         bookId
         createdTime

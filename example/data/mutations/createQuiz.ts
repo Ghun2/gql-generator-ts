@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-export const MUTATION = gql`mutation createQuiz($CreateQuizRequestSchema: CreateQuizRequestSchema!){
+export const CREATE_QUIZ = gql`mutation createQuiz($CreateQuizRequestSchema: CreateQuizRequestSchema!){
     createQuiz(CreateQuizRequestSchema: $CreateQuizRequestSchema){
         answer
         bookId
