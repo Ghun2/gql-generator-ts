@@ -1,6 +1,6 @@
 {
-  "name": "gql-generator",
-  "version": "1.0.19",
+  "name": "gql-generator-ts-apollo",
+  "version": "1.2.1",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -12,19 +12,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timqian/gql-generator.git"
+    "url": "git+https://github.com/Ghun2/gql-generator-ts.git"
   },
   "keywords": [
     "graphql",
     "query",
     "generator"
   ],
-  "author": "timqian",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/timqian/gql-generator/issues"
+    "url": "https://github.com/Ghun2/gql-generator-ts/issues"
   },
-  "homepage": "https://github.com/timqian/gql-generator#readme",
+  "homepage": "https://github.com/Ghun2/gql-generator-ts#readme",
   "dependencies": {
     "commander": "^2.15.1",
     "del": "^3.0.0",
