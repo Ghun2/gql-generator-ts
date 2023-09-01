@@ -1,0 +1,48 @@
+import { gql } from '@apollo/client';
+export const QUERY = gql`query getPage($bookId: Float!, $pageIndex: Float!){
+    getPage(bookId: $bookId, pageIndex: $pageIndex){
+        page{
+            bookId
+            pageIndex
+            pageId
+            pageName
+            pageElement{
+                bookId
+                pageIndex
+                lSize{
+                    height
+                    width
+                }
+                hSize{
+                    height
+                    width
+                }
+                elementList{
+                    elementId
+                    elementType
+                    elementValue
+                    ownerId
+                    ownerType
+                    size{
+                        height
+                        width
+                    }
+                    rectCoords{
+                        coords
+                        fragmentOrderNumber
+                        fragmentCoords{
+                            coords
+                            fragmentOrderNumber
+                        }
+                    }
+                    createdTime
+                    updatedTime
+                }
+                createdTime
+                updatedTime
+            }
+            createdTime
+            updatedTime
+        }
+    }
+}`

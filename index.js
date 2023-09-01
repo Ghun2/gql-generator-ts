@@ -5,6 +5,11 @@ const program = require('commander');
 const { Source, buildSchema } = require('graphql');
 const del = require('del');
 
+const camelToUnderscore = (key) => {
+  const result = key.replace(/([A-Z])/g, ' $1');
+  return result.split(' ').join('_').toUpperCase();
+};
+
 function main ({
   schemaFilePath,
   destDirPath,
@@ -219,12 +224,15 @@ function main ({
           default:
             break;
         }
-        query = `${queryName || description.toLowerCase()} ${type}${varsToTypesStr ? `(${varsToTypesStr})` : ''}{\n${query}\n}`;
+        const importStr = "import { gql } from '@apollo/client';";
+        const exportConstStr = `export const ${camelToUnderscore(queryName)} = gql\``;
+        const params = varsToTypesStr && varsToTypesStr !== '' ? `(${varsToTypesStr})` : '';
+        query = `${importStr}\n${exportConstStr}${queryName || description.toLowerCase()} ${type}${params}{\n${query}\n}\``;
         fs.writeFileSync(path.join(writeFolder, `./${type}.${fileExtension}`), query);
         indexJs += `module.exports.${type} = fs.readFileSync(path.join(__dirname, '${type}.${fileExtension}'), 'utf8');\n`;
       }
     });
-    fs.writeFileSync(path.join(writeFolder, 'index.js'), indexJs);
+    // fs.writeFileSync(path.join(writeFolder, 'index.js'), indexJs);
     indexJsExportAll += `module.exports.${outputFolderName} = require('./${outputFolderName}');\n`;
   };
 
@@ -246,7 +254,7 @@ function main ({
     console.log('[gqlg warning]:', 'No subscription type found in your schema');
   }
 
-  fs.writeFileSync(path.join(destDirPath, 'index.js'), indexJsExportAll);
+  // fs.writeFileSync(path.join(destDirPath, 'index.js'), indexJsExportAll);
 }
 
 module.exports = main
@@ -257,7 +265,7 @@ if (require.main === module) {
     .option('--destDirPath [value]', 'dir you want to store the generated queries')
     .option('--depthLimit [value]', 'query depth you want to limit (The default is 100)')
     .option('--assumeValid [value]', 'assume the SDL is valid (The default is false)')
-    .option('--ext [value]', 'extension file to use', 'gql')
+    .option('--ext [value]', 'extension file to use', 'ts')
     .option('-C, --includeDeprecatedFields [value]', 'Flag to include deprecated fields (The default is to exclude)')
     .option('-R, --includeCrossReferences', 'Flag to include fields that have been added to parent queries already (The default is to exclude)')
     .parse(process.argv);

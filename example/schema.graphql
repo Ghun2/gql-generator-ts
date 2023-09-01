@@ -1,0 +1,3551 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PartnerSchema {
+  partnerId: Float!
+  partnerCode: String
+  partnerType: String!
+  partnerName: String!
+  displayName: String!
+  partnerBasicInfo: PartnerBasicInfoSchema
+  partnerElementInfo: PartnerElementInfoSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PartnerBasicInfoSchema {
+  partnerId: Float!
+  address: String!
+  officeNumber: String!
+  businessRegistrationNumber: String!
+  website: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PartnerElementInfoSchema {
+  partnerId: Float!
+  thumbnail: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type AccountSchema {
+  accountId: Float!
+  partnerId: Float!
+  partner: PartnerSchema
+  accountEmail: String!
+  accountPassword: String!
+  personalName: String!
+  mobileNumber: String!
+  role: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type AuthTokenSchema {
+  accessToken: String!
+  issuedTime: Float!
+  refreshToken: String!
+}
+
+type EducatorSchema {
+  educatorId: Float!
+  email: String!
+  educatorStatus: Float!
+  educatorAccessiblePartnerList: [EducatorAccessiblePartnerSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type EducatorAccessiblePartnerSchema {
+  educatorId: Float!
+  partnerId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type LoginResponseSchema {
+  account: AccountSchema
+  token: AuthTokenSchema
+}
+
+type EducatorLoginResponseSchema {
+  isConfirmed: Boolean!
+  token: AuthTokenSchema
+}
+
+type SolverSchema {
+  userId: Float
+  name: String!
+  mobileNumber: String!
+  solverInfo: String!
+  createdTime: String
+  updatedTime: String
+}
+
+type SizeSchema {
+  height: Float!
+  width: Float!
+}
+
+type RectCoordsSchema {
+  coords: [Float!]!
+  fragmentOrderNumber: Float
+  fragmentCoords: FragmentCoordsSchema
+}
+
+type PageRectCoordsSchema {
+  columnIndex: Float!
+  coords: [Float!]!
+  fragmentOrder: Float
+  pageIndex: Float!
+}
+
+type FragmentCoordsSchema {
+  coords: [Float!]!
+  fragmentOrderNumber: Float
+}
+
+type SolveSchema {
+  userId: Float!
+  id: String!
+  base64: String!
+  size: SizeSchema!
+  createdTime: String
+  updatedTime: String
+}
+
+type GetSolveDrawingPNGResponseSchema {
+  solveDrawingPNG: SolveSchema!
+}
+
+type UserUniqueDeviceSchema {
+  userId: String!
+  uniqueId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type CreateTokenResponseSchema {
+  authToken: AuthTokenSchema
+}
+
+type VerifyResponseSchema {
+  id: Float!
+}
+
+type RefreshAccessTokenResponseSchema {
+  accessToken: String!
+}
+
+type GetUserUniqueDeviceByUserIDResponseSchema {
+  userUniqueDevice: UserUniqueDeviceSchema
+}
+
+type FilterSchema {
+  field: String!
+  keyword: String!
+}
+
+type InnerSchema {
+  field: String!
+  keywordList: [String!]
+}
+
+type OrderBySchema {
+  field: String!
+  keyword: String!
+}
+
+type EducatorAccessRecordSchema {
+  educatorAccessRecordId: Float!
+  educatorId: Float!
+  ipAddress: String
+  city: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+type ListEducatorAccessRecordsByEducatorIDResponseSchema {
+  educatorAccessRecordList: [EducatorAccessRecordSchema!]!
+  listLength: Float!
+}
+
+type ClassExternalContentsSchema {
+  classId: Float!
+  partnerId: Float
+  externalContentsName: String!
+  externalContentsItemList: [ExternalContentsItemSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type ExternalContentsItemSchema {
+  classId: Float!
+  externalContentsId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type ClassSchema {
+  classId: Float!
+  className: String!
+  classManagerId: Float!
+  partnerId: Float!
+  classUserList: [ClassUserSchema!]!
+  classAccountList: [ClassAccountSchema!]!
+  classPackageList: [ClassPackageSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type ClassUserSchema {
+  classId: Float!
+  userId: Float!
+  createdTime: Float!
+  updatedTime: Float!
+}
+
+type ClassAccountSchema {
+  classId: Float!
+  accountId: Float!
+  createdTime: Float!
+  updatedTime: Float!
+}
+
+type ClassPackageSchema {
+  classId: Float!
+  packageId: String!
+  createdTime: Float!
+  updatedTime: Float!
+}
+
+type GetClassByIDResponseSchema {
+  class: ClassSchema
+}
+
+type ListClassesResponseSchema {
+  classes: [ClassSchema!]!
+  listLength: Float
+}
+
+type CreateClassResponseSchema {
+  class: ClassSchema
+}
+
+type UpdateClassResponseSchema {
+  class: ClassSchema
+}
+
+type ListClassesByUserIDResponseSchema {
+  classes: [ClassSchema!]!
+  listLength: Float
+}
+
+type ListClassUsersResponseSchema {
+  classUserList: [ClassUserSchema!]!
+  listLength: Float
+}
+
+type ListClassUsersByClassIDResponseSchema {
+  classUserList: [ClassUserSchema!]!
+  listLength: Float
+}
+
+type ListClassUsersByUserIDResponseSchema {
+  classUserList: [ClassUserSchema!]!
+  listLength: Float
+}
+
+type AppendClassUsersResponseSchema {
+  classUserList: [ClassUserSchema!]!
+}
+
+type ListClassAccountsResponseSchema {
+  classAccountList: [ClassAccountSchema!]!
+  listLength: Float
+}
+
+type ListClassAccountsByClassIDResponseSchema {
+  classAccountList: [ClassAccountSchema!]!
+  listLength: Float
+}
+
+type ListClassAccountsByAccountIDResponseSchema {
+  classAccountList: [ClassAccountSchema!]!
+  listLength: Float
+}
+
+type AppendClassAccountsResponseSchema {
+  classAccountList: [ClassAccountSchema!]!
+}
+
+type ListClassPackagesResponseSchema {
+  classPackageList: [ClassPackageSchema!]!
+  listLength: Float
+}
+
+type ListClassPackagesByClassIDResponseSchema {
+  classPackageList: [ClassPackageSchema!]!
+  listLength: Float
+}
+
+type ListClassPackagesByPackageIDResponseSchema {
+  classPackageList: [ClassPackageSchema!]!
+  listLength: Float
+}
+
+type AppendClassPackagesResponseSchema {
+  classPackageList: [ClassPackageSchema!]!
+}
+
+type ListClassExternalContentsByExternalIDsResponseSchema {
+  classExternalContentsList: [ClassExternalContentsSchema!]!
+  listLength: Float
+}
+
+type UpdateClassExternalContentsResponseSchema {
+  classExternalContents: ClassExternalContentsSchema!
+}
+
+type CreateClassExternalContentsResponseSchema {
+  classExternalContents: ClassExternalContentsSchema!
+}
+
+type ListClassExternalContentsResponseSchema {
+  classExternalContentsList: [ClassExternalContentsSchema!]!
+  listLength: Float
+}
+
+type GetClassExternalContentsResponseSchema {
+  classExternalContents: ClassExternalContentsSchema!
+}
+
+type MessageSchema {
+  messageId: String!
+  type: String!
+  sender: String!
+  smsCount: String!
+  reserveState: String!
+  message: String!
+  failCount: Float!
+  registeredDate: String!
+  reserveDate: String!
+}
+
+type MessageDetailSchema {
+  messageDetailId: String!
+  type: String!
+  sender: String!
+  phoneNumber: String!
+  state: String!
+  registeredDate: String!
+  sendDate: String!
+  reserveDate: String!
+}
+
+type GetMessageResponseSchema {
+  messageDetailList: [MessageDetailSchema!]!
+  nextYn: String!
+}
+
+type ListMessagesResponseSchema {
+  messageList: [MessageSchema!]!
+  nextYn: String!
+}
+
+type SendMessageResponseSchema {
+  messageId: String
+  successCount: Float
+  errorCount: Float
+  messageType: String
+}
+
+type SendMassMessageResponseSchema {
+  messageId: String!
+  successCount: Float!
+  errorCount: Float!
+  messageType: String!
+}
+
+type CancelMessageResponseSchema {
+  cancelDate: String!
+}
+
+type GetMessageBalanceResponseSchema {
+  smsCount: Float!
+  lmsCount: Float!
+  mmsCount: Float!
+}
+
+type TempAttachmentSchema {
+  attachmentId: String!
+  attachmentTypeId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PbQuizSchema {
+  quizId: String!
+  bookId: Float!
+  pageIndex: Float!
+  quizName: String!
+  answer: String!
+  score: Float
+  contentsAgeTypeId: Float!
+  subjectId: Float!
+  quizTypeId: String!
+  quizAnswerTypeId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PbQuizPaperSchema {
+  quizPaperId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PbSolutionSchema {
+  solutionId: String!
+  solutionName: String!
+  answer: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BundleSchema {
+  quizId: String!
+  pbQuiz: PbQuizSchema
+  pbQuizPaperList: [PbQuizPaperSchema!]!
+  pbSolutionList: [PbSolutionSchema!]!
+  attachmentList: [TempAttachmentSchema!]!
+  source: SourceSchema
+}
+
+type SourceSchema {
+  packageId: String
+  pageId: String
+  binderId: String
+  packageIndex: Float
+}
+
+type PbPageSchema {
+  pageId: String!
+  packageId: String!
+  packageIndex: Float!
+  lSize: SizeSchema
+  hSize: SizeSchema
+  bundleList: [BundleSchema!]!
+  attachmentList: [TempAttachmentSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetPbPageByPackageIDAndPageIDResponseSchema {
+  pbPage: PbPageSchema
+}
+
+type ListPbPagesResponseSchema {
+  pbPageList: [PbPageSchema!]!
+  listLength: Float!
+}
+
+type ListPbPagesWithBundlesResponseSchema {
+  pbPageList: [PbPageSchema!]!
+  listLength: Float!
+}
+
+type CreatePbPageResponseSchema {
+  pbPage: PbPageSchema
+}
+
+type UpdatePbPageResponseSchema {
+  pbPage: PbPageSchema
+}
+
+type PackageSchema {
+  packageId: String!
+  packageType: Float!
+  useMode: Float
+  packageStatus: Float!
+  packageName: String!
+  displayName: String!
+  subjectId: Float!
+  pubDate: String!
+  numOfPages: String!
+  author: String!
+  publisher: String!
+  description: String!
+  contentsAgeTypeId: Float!
+  pbPageList: [PbPageSchema!]!
+  attachmentList: [TempAttachmentSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BookToPackageRecordSchema {
+  bookId: Float!
+  packageId: String!
+  partnerId: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetPackageByIDResponseSchema {
+  package: PackageSchema
+}
+
+type ListPackagesResponseSchema {
+  packageList: [PackageSchema!]!
+  listLength: Float!
+}
+
+type CreatePackageResponseSchema {
+  package: PackageSchema
+}
+
+type UpdatePackageResponseSchema {
+  package: PackageSchema
+}
+
+type ConvertBookToPackageByBookIDResponseSchema {
+  package: PackageSchema
+}
+
+type ListBookToPackageRecordsResponseSchema {
+  bookToPackageRecordList: [BookToPackageRecordSchema!]!
+  listLength: Float!
+}
+
+type GetBundleByQuizIDResponseSchema {
+  bundle: BundleSchema
+}
+
+type ListBundlesResponseSchema {
+  bundleList: [BundleSchema!]!
+  listLength: Float!
+}
+
+type ListBundlesByQuizIDsResponseSchema {
+  bundleList: [BundleSchema!]!
+  listLength: Float!
+}
+
+type ListBundlesByPageIDResponseSchema {
+  bundleList: [BundleSchema!]!
+  listLength: Float!
+}
+
+type ListBundlesByPackageIDResponseSchema {
+  bundleList: [BundleSchema!]!
+  listLength: Float!
+}
+
+type ListBundlesByPackageIDsAndQuizIDsResponseSchema {
+  bundleList: [BundleSchema!]!
+  listLength: Float!
+}
+
+type CreateBundleResponseSchema {
+  bundle: BundleSchema
+}
+
+type UpdateBundleResponseSchema {
+  bundle: BundleSchema
+}
+
+type AttachSolutionToBundleResponseSchema {
+  bundle: BundleSchema
+}
+
+type AttachQuizPaperToBundleResponseSchema {
+  bundle: BundleSchema
+}
+
+type DetachSolutionFromBundleResponseSchema {
+  bundle: BundleSchema
+}
+
+type DetachQuizPaperFromBundleResponseSchema {
+  bundle: BundleSchema
+}
+
+type BinderSchema {
+  binderId: String!
+  bundleList: [BundleSchema!]!
+  binderElement: BinderElementSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BinderElementSchema {
+  binderId: String!
+  makerUserId: Float
+  description: String
+  binderLikeList: [BinderLikeSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BinderLikeSchema {
+  binderId: String!
+  userId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetBinderByIDResponseSchema {
+  binder: BinderSchema
+}
+
+type ListBindersResponseSchema {
+  binderList: BinderSchema
+}
+
+type CreateBinderResponseSchema {
+  binder: BinderSchema
+}
+
+type UpdateBinderResponseSchema {
+  binder: BinderSchema
+}
+
+type AppVersionControlSchema {
+  appVersionControlId: Float!
+  startVersion: String!
+  endVersion: String!
+  message: String!
+  isForced: Boolean!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetAppVersionControlByIDResponseSchema {
+  appVersionControl: AppVersionControlSchema
+}
+
+type GetAppVersionControlByTargetResponseSchema {
+  appVersionControl: AppVersionControlSchema
+}
+
+type ListAppVersionControlResponseSchema {
+  appVersionControlList: [AppVersionControlSchema!]!
+}
+
+type UpsertAppVersionControlResponseSchema {
+  appVersionControl: AppVersionControlSchema
+}
+
+type DeleteAppVersionControlResponseSchema {
+  appVersionControlId: Float!
+}
+
+type ElementSchema {
+  elementId: Float!
+  elementType: String!
+  elementValue: String!
+  ownerId: String!
+  ownerType: String!
+  size: SizeSchema
+  rectCoords: RectCoordsSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PageSchema {
+  bookId: Float!
+  pageIndex: Float!
+  pageId: String
+  pageName: String!
+  pageElement: PageElementSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PageElementSchema {
+  bookId: Float!
+  pageIndex: Float!
+  lSize: SizeSchema
+  hSize: SizeSchema
+  elementList: [ElementSchema!]
+  createdTime: Float
+  updatedTime: Float
+}
+
+type SubjectSchema {
+  subjectId: Float!
+  subjectName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type ContentsAgeTypeSchema {
+  contentsAgeTypeId: Float!
+  contentsAgeTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BookCategorySchema {
+  bookCategoryId: Float!
+  parentBookCategoryId: Float!
+  bookCategoryName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizCategorySchema {
+  quizCategoryId: Float!
+  parentQuizCategoryId: Float!
+  subjectId: Float!
+  quizCategoryName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BookTableOfContentsSchema {
+  bookTableOfContentsId: String!
+  bookId: Float!
+  parentBookTableOfContentsId: String!
+  order: Float!
+  tableOfContentsName: String!
+  pageName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BookSchema {
+  bookId: Float!
+  bookName: String!
+  displayName: String!
+  bookCategoryId: Float!
+  bookCategory: BookCategorySchema
+  subjectId: Float!
+  subject: SubjectSchema
+  isbn: String!
+  issn: String!
+  pubDate: String!
+  pubEdition: String!
+  numOfPages: String!
+  author: String!
+  publisher: String!
+  description: String!
+  size: SizeSchema
+  bookStatus: Float!
+  contentsAgeTypeId: Float!
+  contentsAgeType: ContentsAgeTypeSchema
+  bookType: Float!
+  bookTableOfContentsList: [BookTableOfContentsSchema!]!
+  pageList: [PageSchema!]!
+  bookUploaderList: [BookUploaderSchema!]
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BookUploaderSchema {
+  bookId: Float!
+  uploaderType: String!
+  uploaderId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BookMD5Schema {
+  bookId: Float!
+  md5: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizPaperSchema {
+  quizPaperId: String!
+  bookId: Float!
+  pageIndex: Float!
+  contentsAgeTypeId: Float!
+  contentsAgeType: ContentsAgeTypeSchema
+  subjectId: Float!
+  subject: SubjectSchema
+  quizPaperElement: QuizPaperElementSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizPaperElementSchema {
+  quizPaperId: String!
+  text: String!
+  lSize: SizeSchema
+  hSize: SizeSchema
+  lPageRectCoordsList: [PageRectCoordsSchema!]!
+  hPageRectCoordsList: [PageRectCoordsSchema!]!
+  elementList: [ElementSchema!]
+  orderInPage: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+type SolutionSchema {
+  solutionId: String!
+  bookId: Float!
+  pageIndex: Float!
+  solutionName: String!
+  answer: String!
+  solutionElement: SolutionElementSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+type SolutionElementSchema {
+  solutionId: String!
+  text: String!
+  lSize: SizeSchema
+  hSize: SizeSchema
+  lPageRectCoordsList: [PageRectCoordsSchema!]!
+  hPageRectCoordsList: [PageRectCoordsSchema!]!
+  elementList: [ElementSchema!]!
+  orderInPage: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizSchema {
+  quizId: String!
+  bookId: Float!
+  pageIndex: Float!
+  quizName: String!
+  answer: String!
+  score: Float
+  contentsAgeTypeId: Float!
+  contentsAgeType: ContentsAgeTypeSchema
+  subjectId: Float!
+  subject: SubjectSchema
+  quizCategoryId: Float!
+  quizCategory: QuizCategorySchema
+  quizTypeId: String!
+  quizType: QuizTypeSchema
+  quizAnswerTypeId: String!
+  quizAnswerType: QuizAnswerTypeSchema
+  quizElement: QuizElementSchema
+  quizPaperList: [QuizPaperSchema!]!
+  solutionList: [SolutionSchema!]!
+  book: BookSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizTypeSchema {
+  quizTypeId: String!
+  quizTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizAnswerTypeSchema {
+  quizAnswerTypeId: String!
+  quizAnswerTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizElementSchema {
+  quizId: String!
+  text: String!
+  lSize: SizeSchema
+  hSize: SizeSchema
+  lPageRectCoordsList: [PageRectCoordsSchema!]!
+  hPageRectCoordsList: [PageRectCoordsSchema!]!
+  answerBoxElement: AnswerBoxElementSchema
+  elementList: [ElementSchema!]!
+  orderInPage: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+type AnswerBoxElementSchema {
+  quizId: String!
+  lSize: SizeSchema
+  hSize: SizeSchema
+  lRectCoords: RectCoordsSchema
+  hRectCoords: RectCoordsSchema
+  lPageRectCoordsList: [PageRectCoordsSchema!]
+  hPageRectCoordsList: [PageRectCoordsSchema!]
+  selectorTypeId: Float!
+  selectorType: SelectorTypeSchema
+  answerSelectorElementList: [AnswerSelectorElementSchema!]!
+  targetFragmentOrder: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type SelectorTypeSchema {
+  selectorTypeId: Float!
+  selectorTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type AnswerSelectorElementSchema {
+  quizId: String!
+  lSize: SizeSchema
+  hSize: SizeSchema
+  lRectCoords: RectCoordsSchema
+  hRectCoords: RectCoordsSchema
+  selectorNumber: Float!
+  selectorText: String!
+  text: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type QuizResultSchema {
+  userId: Float!
+  quizId: String!
+  bookId: Float
+  packageId: String
+  userAnswer: String
+  correct: Float
+  elapsedSeconds: Float
+  round: Float
+  periodNumber: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+type StarredQuizSchema {
+  userId: Float!
+  quizId: String!
+  packageId: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+type ArchiveQuizSchema {
+  userId: Float!
+  quizId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserQuizSchema {
+  userId: Float!
+  quizId: String!
+  quiz: QuizSchema
+  quizResultList: [QuizResultSchema!]!
+  starredQuiz: StarredQuizSchema
+  archiveQuiz: ArchiveQuizSchema
+}
+
+type PeriodSchema {
+  periodNumber: Float!
+  userId: Float!
+  bookId: Float
+  packageId: String
+  lastOpenedTime: Float
+  solvedTime: Float
+  elapsedSeconds: Float
+  isExam: Boolean
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserBookSchema {
+  userId: Float!
+  bookId: Float!
+  book: BookSchema
+  periodList: [PeriodSchema!]!
+}
+
+type GetUserBookResponseSchema {
+  userBook: UserBookSchema!
+}
+
+type ListBooksOfUserResponseSchema {
+  bookList: [BookSchema!]!
+  listLength: Float!
+}
+
+type ListUserBooksResponseSchema {
+  userBookList: [UserBookSchema!]!
+  listLength: Float!
+}
+
+type ListQuizzesOfUserResponseSchema {
+  quizList: [QuizSchema!]!
+  listLength: Float!
+}
+
+type ListUserQuizzesInBookResponseSchema {
+  userQuizList: [UserQuizSchema!]!
+  listLength: Float!
+}
+
+type ListUserQuizzesOfUserResponseSchema {
+  userQuizList: [UserQuizSchema!]!
+  listLength: Float!
+}
+
+type AppendQuizResultsResponseSchema {
+  quizResultList: [QuizResultSchema!]!
+}
+
+type AppendStarredQuizzesResponseSchema {
+  starredQuizList: [StarredQuizSchema!]!
+}
+
+type AppendArchiveQuizzesResponseSchema {
+  archiveQuizList: [ArchiveQuizSchema!]!
+}
+
+type UpdatePeriodResponseSchema {
+  period: PeriodSchema!
+}
+
+type ListPackagesWithUserOwnResponse_PackageWithUserOwnSchema {
+  package: PackageSchema
+  isUserOwn: Boolean!
+}
+
+type UserBundleSchema {
+  userId: Float!
+  quizId: String!
+  bundle: BundleSchema
+  quizResultList: [QuizResultSchema!]!
+  starredQuiz: StarredQuizSchema
+  archiveQuiz: ArchiveQuizSchema
+}
+
+type UserOwnPackageSchema {
+  userId: Float!
+  packageId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserOwnSolutionSchema {
+  userId: Float!
+  solutionId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserPackageSchema {
+  userId: Float!
+  packageId: String!
+  package: PackageSchema
+  periodList: [PeriodSchema!]!
+}
+
+type GetUserBundleResponseSchema {
+  userBundle: UserBundleSchema
+}
+
+type GetUserPackageResponseSchema {
+  userPackage: UserPackageSchema
+}
+
+type ListUserPackagesResponseSchema {
+  userPackageList: [UserPackageSchema!]!
+  listLength: Float
+}
+
+type ListUserPackagesOfClassResponseSchema {
+  userPackageList: [UserPackageSchema!]!
+  listLength: Float
+}
+
+type ListUserPackagesOfPartnerResponseSchema {
+  userPackageList: [UserPackageSchema!]!
+  listLength: Float
+}
+
+type ListPackagesOfUserResponseSchema {
+  packageList: [PackageSchema!]!
+  listLength: Float
+}
+
+type ListPackagesOfUserByUploaderResponseSchema {
+  packageList: [PackageSchema!]!
+  listLength: Float
+}
+
+type ListBundlesOfUserResponseSchema {
+  bundleList: [BundleSchema!]!
+  listLength: Float
+}
+
+type ListUserBundlesInPackageResponseSchema {
+  userBundleList: [UserBundleSchema!]!
+  listLength: Float
+}
+
+type ListUserBundlesOfUserResponseSchema {
+  userBundleList: [UserBundleSchema!]!
+  listLength: Float
+}
+
+type ListUserOwnPackagesResponseSchema {
+  userOwnPackageList: [UserOwnPackageSchema!]!
+  listLength: Float
+}
+
+type ListUserOwnPackagesByUserIDResponseSchema {
+  userOwnPackageList: [UserOwnPackageSchema!]!
+  listLength: Float
+}
+
+type AppendUserOwnPackageResponseSchema {
+  userOwnPackage: UserOwnPackageSchema
+}
+
+type BatchCreateUserOwnPackagesResponseSchema {
+  userOwnPackageList: [UserOwnPackageSchema!]!
+}
+
+type ListUserOwnSolutionsResponseSchema {
+  userOwnSolutionList: [UserOwnSolutionSchema!]!
+  listLength: Float
+}
+
+type AppendUserOwnSolutionResponseSchema {
+  userOwnSolution: UserOwnSolutionSchema
+}
+
+type BatchCreateUserOwnSolutionsResponseSchema {
+  userOwnSolutionList: [UserOwnSolutionSchema!]!
+}
+
+type ListPeriodsByUserIDAndPackageIDResponseSchema {
+  periodList: [PeriodSchema!]!
+  listLength: Float
+}
+
+type ListPackagesWithUserOwnResponseSchema {
+  packageWithUserOwnList: [ListPackagesWithUserOwnResponse_PackageWithUserOwnSchema!]!
+  listLength: Float
+}
+
+type GetPartnerByIdResponseSchema {
+  partner: PartnerSchema
+}
+
+type ListPartnersResponseSchema {
+  partnerList: [PartnerSchema!]!
+  listLength: Float
+}
+
+type CreatePartnerResponseSchema {
+  partner: PartnerSchema!
+}
+
+type UpdatePartnerResponseSchema {
+  partner: PartnerSchema!
+}
+
+type GetAccountByEmailResponseSchema {
+  account: AccountSchema
+}
+
+type GetAccountByIDResponseSchema {
+  account: AccountSchema
+}
+
+type GetAccountByEmailWithPasswordResponseSchema {
+  account: AccountSchema
+}
+
+type ListAccountsResponseSchema {
+  accountList: [AccountSchema!]!
+  listLength: Float
+}
+
+type CreateAccountResponseSchema {
+  account: AccountSchema!
+}
+
+type UpdateAccountResponseSchema {
+  account: AccountSchema!
+}
+
+type ListPackagesOfEducatorResponseSchema {
+  packageList: [PackageSchema!]!
+  listLength: Float!
+}
+
+type GetEducatorByEmailResponseSchema {
+  educator: EducatorSchema
+}
+
+type ListEducatorsResponseSchema {
+  educatorList: [EducatorSchema!]
+  listLength: Float!
+}
+
+type ListEducatorsByPartnerIDResponseSchema {
+  educatorList: [EducatorSchema!]!
+  listLength: Float!
+}
+
+type CreateEducatorByEmailResponseSchema {
+  educator: EducatorSchema
+}
+
+type UpdateEducatorResponseSchema {
+  educator: EducatorSchema
+}
+
+type BatchCreateEducatorAccessiblePartnersResponseSchema {
+  educatorAccessiblePartnerList: [EducatorAccessiblePartnerSchema!]!
+}
+
+type SchoolSchema {
+  schoolId: Float!
+  schoolCode: Float
+  schoolName: String!
+  schoolType: String
+  establish: String
+  postalCode: String
+  address: String
+  telephone: String
+  homepage: String
+  highSchoolClassification: String
+  establishmentDate: String
+  schoolAnniversary: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetSchoolByIDResponseSchema {
+  school: SchoolSchema
+}
+
+type ListSchoolsResponseSchema {
+  schoolList: [SchoolSchema!]!
+  listLength: Float!
+}
+
+type CreateSchoolResponseSchema {
+  school: SchoolSchema
+}
+
+type UpdateSchoolResponseSchema {
+  school: SchoolSchema
+}
+
+type CollegeSchema {
+  collegeId: Float!
+  interdisciplinary: String
+  establish: String
+  collegeName: String!
+  campusType: String
+  state: String
+  province: String
+  address: String
+  postalCode: String
+  telephone: String
+  homepage: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserSchema {
+  userId: Float
+  userSso: [UserSsoSchema!]!
+  gender: Gender!
+  birth: String!
+  mobileNumber: String!
+  email: String!
+  userElementInfo: UserElementInfoSchema
+  userTermsAndPrivacy: UserTermsAndPrivacySchema
+  userMarketingConsent: UserMarketingConsentSchema
+  userPassInfo: UserPassInfoSchema
+  lastLoginTime: Float
+  status: Status
+  createdTime: Float
+  updatedTime: Float
+}
+
+enum Gender {
+  UNSPECIFIED
+  MALE
+  FEMALE
+  NOT_APPLICABLE
+}
+
+enum Status {
+  UNSPECIFIED
+  USABLE
+  DORMANT
+  LEAVE
+  BAN
+  LINEUP
+}
+
+type UserSsoSchema {
+  platformType: PlatformType!
+  platformId: String!
+  userId: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+enum PlatformType {
+  UNSPECIFIED
+  KAKAO
+  APPLE
+  GOOGLE
+  NAVER
+  MEGASTUDY
+}
+
+type UserElementInfoSchema {
+  userId: Float
+  userName: String!
+  nickname: String
+  profileImage: String
+  userStudentInfo: UserStudentInfoSchema
+  userCalendarList: [UserCalendarSchema!]
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserStudentInfoSchema {
+  userId: Float
+  schoolId: Float!
+  school: SchoolSchema
+  admissionYear: String
+  studentGrade: Float
+  targetCollegeId: Float
+  college: CollegeSchema
+  targetMajor: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserCalendarSchema {
+  userCalendarId: Float
+  userId: Float
+  date: String!
+  description: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserTermsAndPrivacySchema {
+  userId: Float
+  termsOfService: Boolean!
+  privacyPolicy: Boolean!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserMarketingConsentSchema {
+  userId: Float
+  email: Boolean
+  sms: Boolean
+  push: Boolean
+  createdTime: Float
+  updatedTime: Float
+}
+
+type UserPassInfoSchema {
+  userId: Float
+  plid: String!
+  ci: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetUserByIDResponseSchema {
+  user: UserSchema
+}
+
+type ListUsersResponseSchema {
+  userList: [UserSchema!]!
+  listLength: Float
+}
+
+type CreateUserResponseSchema {
+  user: UserSchema
+}
+
+type UpdateUserResponseSchema {
+  user: UserSchema
+}
+
+type BatchUpdateUserStatusResponseSchema {
+  userList: [UserSchema!]!
+  listLength: Float
+}
+
+type BannerAreaSchema {
+  bannerAreaId: Float!
+  bannerAreaName: String!
+  size: SizeSchema
+  createdTime: Float
+  updatedTime: Float
+  bannerList: [BannerSchema!]
+}
+
+type BannerSchema {
+  bannerId: Float!
+  bannerAreaId: Float!
+  bannerType: Float
+  imageUrl: String
+  priorityNumber: Float!
+  startTime: Float!
+  endTime: Float!
+  bannerText: String
+  bannerAltText: String
+  landingTarget: String
+  webUrl: String
+  bannerTargetPlatformList: [BannerTargetPlatformSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type BannerTargetPlatformSchema {
+  bannerId: Float!
+  targetPlatform: TargetPlatform!
+  createdTime: Float
+  updatedTime: Float
+}
+
+enum TargetPlatform {
+  UNSPECIFIED
+  IOS
+  IOS_IPAD
+  IOS_MOBILE
+  ANDROID
+  ANDROID_TABLET
+  ANDROID_MOBILE
+  WEB
+}
+
+type ListBannerAreasResponseSchema {
+  bannerAreaList: [BannerAreaSchema!]!
+  listLength: Float
+}
+
+type AppendBannerAreaResponseSchema {
+  bannerArea: BannerAreaSchema
+}
+
+type UpdateBannerAreaResponseSchema {
+  bannerArea: BannerAreaSchema
+}
+
+type GetBannerResponseSchema {
+  banner: BannerSchema
+}
+
+type ListBannersResponseSchema {
+  bannerList: [BannerSchema!]!
+  listLength: Float
+}
+
+type SaveBannersResponseSchema {
+  bannerList: [BannerSchema!]!
+}
+
+type ListBannersInTimeResponseSchema {
+  bannerList: [BannerSchema!]!
+  listLength: Float
+}
+
+type BookCountPerSubjectSchema {
+  subjectId: Float!
+  count: Float!
+}
+
+type ListBooksResponseSchema {
+  bookList: [BookSchema!]!
+  listLength: Float
+}
+
+type GetBookByIdResponseSchema {
+  book: BookSchema
+}
+
+type CreateBookResponseSchema {
+  book: BookSchema
+}
+
+type UpdateBookResponseSchema {
+  book: BookSchema
+}
+
+type ListBookCountsPerSubjectResponseSchema {
+  bookCountPerSubject: [BookCountPerSubjectSchema!]!
+}
+
+type GetBookByMD5ResponseSchema {
+  book: BookSchema
+}
+
+type UpsertBookMD5ResponseSchema {
+  bookMd5: BookMD5Schema!
+}
+
+type ListPagesResponseSchema {
+  listLength: Float
+  pageList: [PageSchema!]!
+}
+
+type GetPageResponseSchema {
+  page: PageSchema
+}
+
+type ListPagesJoinElementsResponseSchema {
+  listLength: Float
+  pageList: [PageSchema!]!
+}
+
+type CreatePageResponseSchema {
+  page: PageSchema
+}
+
+type UpdatePageResponseSchema {
+  page: PageSchema
+}
+
+type ListQuizPapersResponseSchema {
+  quizPaperList: [QuizPaperSchema!]!
+  listLength: Float
+}
+
+type GetQuizPaperByIdResponseSchema {
+  quizPaper: QuizPaperSchema
+}
+
+type CreateQuizPaperResponseSchema {
+  quizPaper: QuizPaperSchema
+}
+
+type UpdateQuizPaperResponseSchema {
+  quizPaper: QuizPaperSchema
+}
+
+type ListQuizPapersInBookResponseSchema {
+  listLength: Float
+  quizPaperList: [QuizPaperSchema!]!
+}
+
+type ListQuizPapersInPageResponseSchema {
+  listLength: Float
+  quizPaperList: [QuizPaperSchema!]!
+}
+
+type ListQuizPapersByQuizIdResponseSchema {
+  listLength: Float
+  quizPaperList: [QuizPaperSchema!]!
+}
+
+type AttachQuizzesInQuizPaperResponseSchema {
+  quizPaper: QuizPaperSchema
+}
+
+type ListSolutionsResponseSchema {
+  listLength: Float
+  solutionList: [SolutionSchema!]!
+}
+
+type ListSolutionsInBookResponseSchema {
+  listLength: Float
+  solutionList: [SolutionSchema!]!
+}
+
+type ListSolutionsInPageResponseSchema {
+  listLength: Float
+  solutionList: [SolutionSchema!]!
+}
+
+type ListSolutionsByQuizIdResponseSchema {
+  listLength: Float
+  solutionList: [SolutionSchema!]!
+}
+
+type GetSolutionByIdResponseSchema {
+  solution: SolutionSchema
+}
+
+type CreateSolutionResponseSchema {
+  solution: SolutionSchema
+}
+
+type UpdateSolutionResponseSchema {
+  solution: SolutionSchema
+}
+
+type AttachQuizzesInSolutionResponseSchema {
+  solution: SolutionSchema
+}
+
+type DetachSolutionFromQuizResponseSchema {
+  solution: SolutionSchema!
+}
+
+type MathcollectStatusSchema {
+  bookId: Float!
+  itemId: ID!
+  itemType: String!
+  isComplete: Boolean!
+  updatedTime: String
+}
+
+type ListQuizzesResponseSchema {
+  quizList: [QuizSchema!]!
+  listLength: Float
+}
+
+type ListQuizzesInBookResponseSchema {
+  quizList: [QuizSchema!]!
+  listLength: Float
+}
+
+type ListQuizzesInPageResponseSchema {
+  quizList: [QuizSchema!]!
+  listLength: Float
+}
+
+type GetQuizByIdResponseSchema {
+  quiz: QuizSchema
+}
+
+type CreateQuizResponseSchema {
+  quiz: QuizSchema
+}
+
+type UpdateQuizResponseSchema {
+  quiz: QuizSchema
+}
+
+type UpdateQuizzesSubjectIDByBookIDResponseSchema {
+  quizList: [QuizSchema!]!
+  listLength: Float
+}
+
+type ListElementsResponseSchema {
+  elementList: [ElementSchema!]!
+  listLength: Float
+}
+
+type GetElementByIdResponseSchema {
+  element: ElementSchema
+}
+
+type CreateElementResponseSchema {
+  element: ElementSchema
+}
+
+type UpdateElementResponseSchema {
+  element: ElementSchema
+}
+
+type AnswerSetSchema {
+  answerSetId: String!
+  bookId: Float!
+  pageIndex: Float!
+  answerSetName: String!
+  answerSetItemList: [AnswerSetItemSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type AnswerSetItemSchema {
+  name: String!
+  answer: String!
+}
+
+type GetBookCategoryResponseSchema {
+  bookCategory: BookCategorySchema
+}
+
+type ListBookCategoriesResponseSchema {
+  bookCategoryList: [BookCategorySchema!]!
+  listLength: Float
+}
+
+type CreateBookCategoryResponseSchema {
+  bookCategory: BookCategorySchema
+}
+
+type UpdateBookCategoryResponseSchema {
+  bookCategory: BookCategorySchema
+}
+
+type GetQuizCategoryResponseSchema {
+  quizCategory: QuizCategorySchema
+}
+
+type ListQuizCategoriesResponseSchema {
+  quizCategoryList: [QuizCategorySchema!]!
+  listLength: Float
+}
+
+type CreateQuizCategoryResponseSchema {
+  quizCategory: QuizCategorySchema
+}
+
+type UpdateQuizCategoryResponseSchema {
+  quizCategory: QuizCategorySchema
+}
+
+type GetSubjectResponseSchema {
+  subject: SubjectSchema
+}
+
+type ListSubjectsResponseSchema {
+  subjectList: [SubjectSchema!]!
+  listLength: Float
+}
+
+type CreateSubjectResponseSchema {
+  subject: SubjectSchema
+}
+
+type UpdateSubjectResponseSchema {
+  subject: SubjectSchema
+}
+
+type GetContentsAgeTypeResponseSchema {
+  contentsAgeType: ContentsAgeTypeSchema
+}
+
+type ListContentsAgeTypesResponseSchema {
+  contentsAgeTypeList: [ContentsAgeTypeSchema!]!
+  listLength: Float
+}
+
+type CreateContentsAgeTypeResponseSchema {
+  contentsAgeType: ContentsAgeTypeSchema
+}
+
+type UpdateContentsAgeTypeResponseSchema {
+  contentsAgeType: ContentsAgeTypeSchema
+}
+
+type GetQuizTypeResponseSchema {
+  quizType: QuizTypeSchema
+}
+
+type ListQuizTypesResponseSchema {
+  quizTypeList: [QuizTypeSchema!]!
+  listLength: Float
+}
+
+type CreateQuizTypeResponseSchema {
+  quizType: QuizTypeSchema
+}
+
+type UpdateQuizTypeResponseSchema {
+  quizType: QuizTypeSchema
+}
+
+type GetQuizAnswerTypeResponseSchema {
+  quizAnswerType: QuizAnswerTypeSchema
+}
+
+type ListQuizAnswerTypesResponseSchema {
+  quizAnswerTypeList: [QuizAnswerTypeSchema!]!
+  listLength: Float
+}
+
+type CreateQuizAnswerTypeResponseSchema {
+  quizAnswerType: QuizAnswerTypeSchema
+}
+
+type UpdateQuizAnswerTypeResponseSchema {
+  quizAnswerType: QuizAnswerTypeSchema
+}
+
+type GetSelectorTypeResponseSchema {
+  selectorType: SelectorTypeSchema
+}
+
+type ListSelectorTypesResponseSchema {
+  selectorTypeList: [SelectorTypeSchema!]!
+  listLength: Float
+}
+
+type CreateSelectorTypeResponseSchema {
+  selectorType: SelectorTypeSchema
+}
+
+type UpdateSelectorTypeResponseSchema {
+  selectorType: SelectorTypeSchema
+}
+
+type GetAnswerSetResponseSchema {
+  answerSet: AnswerSetSchema
+}
+
+type ListAnswerSetByBookResponseSchema {
+  answerSetList: [AnswerSetSchema!]!
+  listLength: Float
+}
+
+type UpsertAnswerSetResponseSchema {
+  answerSet: AnswerSetSchema
+}
+
+type UserUploadContentSchema {
+  userId: Float!
+  bookId: Float!
+  packageId: String
+  bookName: String!
+  uploadedTime: Float
+  packageCreatedTime: Float
+}
+
+type ListUserUploadContentResponseSchema {
+  userUploadContent: [UserUploadContentSchema!]!
+  listLength: Float
+}
+
+type ConversionAccountSchema {
+  accountId: Float!
+  partnerId: Float!
+  role: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetConversionAccountByIDResponseSchema {
+  conversionAccount: ConversionAccountSchema
+}
+
+type ListConversionAccountsByPartnerResponseSchema {
+  conversionAccountList: [ConversionAccountSchema!]!
+  listLength: Float!
+}
+
+type CreateConversionAccountResponseSchema {
+  conversionAccount: ConversionAccountSchema
+}
+
+type UpdateConversionAccountResponseSchema {
+  conversionAccount: ConversionAccountSchema
+}
+
+type OperatingActionRecordSchema {
+  recordId: Float!
+  accountId: Float!
+  partnerId: Float!
+  resourceType: String
+  actionType: String
+  data: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetOperatingActionRecordByIDResponseSchema {
+  operatingActionRecord: OperatingActionRecordSchema
+}
+
+type ListOperatingActionRecordsByPartnerResponseSchema {
+  operatingActionRecordList: [OperatingActionRecordSchema!]!
+  listLength: Float!
+}
+
+type CreateOperatingActionRecordResponseSchema {
+  operatingActionRecord: OperatingActionRecordSchema
+}
+
+type BatchCreateOperatingActionRecordsResponseSchema {
+  operatingActionRecordList: [OperatingActionRecordSchema!]!
+}
+
+type ConversionIssueSchema {
+  issueId: Float!
+  sender: Float!
+  receiver: Float!
+  message: String!
+  target: String!
+  status: String!
+  conversionIssueReplyList: [ConversionIssueReplySchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type ConversionIssueReplySchema {
+  issueReplyId: Float
+  issueId: Float!
+  sender: Float!
+  message: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetConversionIssueResponseSchema {
+  conversionIssue: ConversionIssueSchema
+}
+
+type ListConversionIssuesByAccountResponseSchema {
+  conversionIssueList: [ConversionIssueSchema!]!
+}
+
+type CreateConversionIssueResponseSchema {
+  conversionIssue: ConversionIssueSchema
+}
+
+type BatchCreateConversionIssuesResponseSchema {
+  conversionIssueList: [ConversionIssueSchema!]!
+}
+
+type UpdateConversionIssueResponseSchema {
+  conversionIssue: ConversionIssueSchema
+}
+
+type ReadIssueSchema {
+  issueId: Float!
+  accountId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type MarkReadIssueResponseSchema {
+  readIssue: ReadIssueSchema
+}
+
+type ListReadIssuesByAccountResponseSchema {
+  readIssueList: [ReadIssueSchema!]!
+  listLength: Float!
+}
+
+type ListConversionIssuesUnifiedSearchResponseSchema {
+  conversionIssueList: [ConversionIssueSchema!]!
+  listLength: Float
+}
+
+type PartnerOwnPackageSchema {
+  packageId: String!
+  partnerId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type PartnerPackageSchema {
+  partnerId: Float!
+  partnerName: String!
+  package: PackageSchema!
+}
+
+type ListPackagesOfPartnerResponseSchema {
+  packageList: [PackageSchema!]!
+  listLength: Float
+}
+
+type AppendPartnerOwnPackageResponseSchema {
+  partnerOwnPackage: PartnerOwnPackageSchema!
+}
+
+type ListPartnerPackagesResponseSchema {
+  partnerPackageList: [PartnerPackageSchema!]!
+  listLength: Float
+}
+
+type PackageCountSchema {
+  packageId: String!
+  count: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type GetPartnerOwnPackageCustomResponseSchema {
+  packageId: String!
+  partnerId: Float!
+}
+
+type DetectorItemSchema {
+  bbox: [Float!]!
+}
+
+type DetectorLabelItemSchema {
+  bbox: [Float!]!
+  label: Float!
+}
+
+type DetectorResponseSchema {
+  result: [DetectorItemSchema!]!
+}
+
+type DetectorSingleResponseSchema {
+  result: DetectorItemSchema!
+}
+
+type DetectorLabelResponseSchema {
+  result: [DetectorLabelItemSchema!]!
+}
+
+input PartnerInputSchema {
+  partnerId: Float!
+  partnerCode: String
+  partnerType: String!
+  partnerName: String!
+  displayName: String!
+  partnerBasicInfo: PartnerBasicInfoInputSchema
+  partnerElementInfo: PartnerElementInfoInputSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PartnerBasicInfoInputSchema {
+  partnerId: Float!
+  address: String!
+  officeNumber: String!
+  businessRegistrationNumber: String!
+  website: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PartnerElementInfoInputSchema {
+  partnerId: Float!
+  thumbnail: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input AccountInputSchema {
+  accountId: Float!
+  partnerId: Float!
+  partner: PartnerInputSchema
+  accountEmail: String!
+  accountPassword: String!
+  personalName: String!
+  mobileNumber: String!
+  role: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input EducatorInputSchema {
+  educatorId: Float!
+  email: String!
+  educatorStatus: Float!
+  educatorAccessiblePartnerList: [EducatorAccessiblePartnerInputSchema!]!
+  createdTime: Float = 0
+  updatedTime: Float = 0
+}
+
+input EducatorAccessiblePartnerInputSchema {
+  educatorId: Float!
+  partnerId: Float!
+  createdTime: Float = 0
+  updatedTime: Float = 0
+}
+
+input SolverInputSchema {
+  userId: Float = 0
+  name: String!
+  mobileNumber: String!
+  solverInfo: String!
+  createdTime: String
+  updatedTime: String
+}
+
+input SizeInputSchema {
+  height: Float!
+  width: Float!
+}
+
+input RectCoordsInputSchema {
+  coords: [Float!]!
+  fragmentOrderNumber: Float = 1
+  fragmentCoords: FragmentCoordsInputSchema
+}
+
+input PageRectCoordsInputSchema {
+  columnIndex: Float!
+  coords: [Float!]!
+  fragmentOrder: Float
+  pageIndex: Float!
+}
+
+input FragmentCoordsInputSchema {
+  coords: [Float!]!
+  fragmentOrderNumber: Float
+}
+
+input SolveInputSchema {
+  userId: Float!
+  id: String!
+  base64: String!
+  size: SizeInputSchema!
+  createdTime: String
+  updatedTime: String
+}
+
+input UserUniqueDeviceInputSchema {
+  userId: String!
+  uniqueId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input FilterInputSchema {
+  field: String!
+  keyword: String!
+}
+
+input InnerInputSchema {
+  field: String!
+  keywordList: [String!] = []
+}
+
+input OrderByInputSchema {
+  field: String!
+  keyword: String!
+}
+
+input EducatorAccessRecordInputSchema {
+  educatorAccessRecordId: Float!
+  educatorId: Float!
+  ipAddress: String
+  city: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ClassExternalContentsInputSchema {
+  classId: Float!
+  partnerId: Float
+  externalContentsName: String! = ""
+  externalContentsItemList: [ExternalContentsItemInputSchema!]!
+  createdTime: Float = 0
+  updatedTime: Float = 0
+}
+
+input ExternalContentsItemInputSchema {
+  classId: Float!
+  externalContentsId: String!
+  createdTime: Float = 0
+  updatedTime: Float = 0
+}
+
+input ClassInputSchema {
+  classId: Float!
+  className: String!
+  classManagerId: Float!
+  partnerId: Float!
+  classUserList: [ClassUserInputSchema!]!
+  classAccountList: [ClassAccountInputSchema!]!
+  classPackageList: [ClassPackageInputSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ClassUserInputSchema {
+  classId: Float!
+  userId: Float!
+  createdTime: Float!
+  updatedTime: Float!
+}
+
+input ClassAccountInputSchema {
+  classId: Float!
+  accountId: Float!
+  createdTime: Float!
+  updatedTime: Float!
+}
+
+input ClassPackageInputSchema {
+  classId: Float!
+  packageId: String!
+  createdTime: Float!
+  updatedTime: Float!
+}
+
+input MessageInputSchema {
+  messageId: String!
+  type: String!
+  sender: String!
+  smsCount: String!
+  reserveState: String!
+  message: String!
+  failCount: Float!
+  registeredDate: String!
+  reserveDate: String!
+}
+
+input MessageDetailInputSchema {
+  messageDetailId: String!
+  type: String!
+  sender: String!
+  phoneNumber: String!
+  state: String!
+  registeredDate: String!
+  sendDate: String!
+  reserveDate: String!
+}
+
+input TempAttachmentInputSchema {
+  attachmentId: String!
+  attachmentTypeId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PbQuizInputSchema {
+  quizId: String!
+  bookId: Float!
+  pageIndex: Float!
+  quizName: String!
+  answer: String!
+  score: Float
+  contentsAgeTypeId: Float!
+  subjectId: Float!
+  quizTypeId: String!
+  quizAnswerTypeId: String!
+  createdTime: Float = 0
+  updatedTime: Float = 0
+}
+
+input PbQuizPaperInputSchema {
+  quizPaperId: String!
+  createdTime: Float = 0
+  updatedTime: Float = 0
+}
+
+input PbSolutionInputSchema {
+  solutionId: String!
+  solutionName: String!
+  answer: String!
+  createdTime: Float = 0
+  updatedTime: Float = 0
+}
+
+input BundleInputSchema {
+  quizId: String!
+  pbQuiz: PbQuizInputSchema
+  pbQuizPaperList: [PbQuizPaperInputSchema!]!
+  pbSolutionList: [PbSolutionInputSchema!]!
+  attachmentList: [TempAttachmentInputSchema!]!
+  source: SourceInputSchema
+}
+
+input SourceInputSchema {
+  packageId: String
+  pageId: String
+  binderId: String
+  packageIndex: Float
+}
+
+input PbPageInputSchema {
+  pageId: String!
+  packageId: String!
+  packageIndex: Float!
+  lSize: SizeInputSchema
+  hSize: SizeInputSchema
+  bundleList: [BundleInputSchema!]!
+  attachmentList: [TempAttachmentInputSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PackageInputSchema {
+  packageId: String!
+  packageType: Float!
+  useMode: Float
+  packageStatus: Float!
+  packageName: String!
+  displayName: String!
+  subjectId: Float!
+  pubDate: String!
+  numOfPages: String!
+  author: String!
+  publisher: String!
+  description: String!
+  contentsAgeTypeId: Float!
+  pbPageList: [PbPageInputSchema!]!
+  attachmentList: [TempAttachmentInputSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BookToPackageRecordInputSchema {
+  bookId: Float!
+  packageId: String!
+  partnerId: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BinderInputSchema {
+  binderId: String!
+  bundleList: [BundleInputSchema!]!
+  binderElement: BinderElementInputSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BinderElementInputSchema {
+  binderId: String!
+  makerUserId: Float
+  description: String
+  binderLikeList: [BinderLikeInputSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BinderLikeInputSchema {
+  binderId: String!
+  userId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input AppVersionControlInputSchema {
+  appVersionControlId: Float!
+  startVersion: String!
+  endVersion: String!
+  message: String!
+  isForced: Boolean!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ElementInputSchema {
+  elementId: Float!
+  elementType: String!
+  elementValue: String!
+  ownerId: String!
+  ownerType: String!
+  size: SizeInputSchema
+  rectCoords: RectCoordsInputSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PageInputSchema {
+  bookId: Float!
+  pageIndex: Float!
+  pageId: String
+  pageName: String!
+  pageElement: PageElementInputSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PageElementInputSchema {
+  bookId: Float!
+  pageIndex: Float!
+  lSize: SizeInputSchema
+  hSize: SizeInputSchema
+  elementList: [ElementInputSchema!]
+  createdTime: Float
+  updatedTime: Float
+}
+
+input SubjectInputSchema {
+  subjectId: Float!
+  subjectName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ContentsAgeTypeInputSchema {
+  contentsAgeTypeId: Float!
+  contentsAgeTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BookCategoryInputSchema {
+  bookCategoryId: Float!
+  parentBookCategoryId: Float!
+  bookCategoryName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizCategoryInputSchema {
+  quizCategoryId: Float!
+  parentQuizCategoryId: Float!
+  subjectId: Float!
+  quizCategoryName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BookTableOfContentsInputSchema {
+  bookTableOfContentsId: String!
+  bookId: Float!
+  parentBookTableOfContentsId: String!
+  order: Float!
+  tableOfContentsName: String!
+  pageName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BookInputSchema {
+  bookId: Float!
+  bookName: String!
+  displayName: String!
+  bookCategoryId: Float!
+  bookCategory: BookCategoryInputSchema
+  subjectId: Float!
+  subject: SubjectInputSchema
+  isbn: String!
+  issn: String!
+  pubDate: String!
+  pubEdition: String!
+  numOfPages: String!
+  author: String!
+  publisher: String!
+  description: String!
+  size: SizeInputSchema
+  bookStatus: Float!
+  contentsAgeTypeId: Float!
+  contentsAgeType: ContentsAgeTypeInputSchema
+  bookType: Float!
+  bookTableOfContentsList: [BookTableOfContentsInputSchema!]!
+  pageList: [PageInputSchema!]!
+  bookUploaderList: [BookUploaderInputSchema!] = []
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BookUploaderInputSchema {
+  bookId: Float!
+  uploaderType: String!
+  uploaderId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BookMD5InputSchema {
+  bookId: Float!
+  md5: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizPaperInputSchema {
+  quizPaperId: String!
+  bookId: Float!
+  pageIndex: Float!
+  contentsAgeTypeId: Float!
+  contentsAgeType: ContentsAgeTypeInputSchema
+  subjectId: Float!
+  subject: SubjectInputSchema
+  quizPaperElement: QuizPaperElementInputSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizPaperElementInputSchema {
+  quizPaperId: String!
+  text: String!
+  lSize: SizeInputSchema
+  hSize: SizeInputSchema
+  lPageRectCoordsList: [PageRectCoordsInputSchema!]!
+  hPageRectCoordsList: [PageRectCoordsInputSchema!]!
+  elementList: [ElementInputSchema!]
+  orderInPage: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+input SolutionInputSchema {
+  solutionId: String!
+  bookId: Float!
+  pageIndex: Float!
+  solutionName: String!
+  answer: String!
+  solutionElement: SolutionElementInputSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+input SolutionElementInputSchema {
+  solutionId: String!
+  text: String!
+  lSize: SizeInputSchema
+  hSize: SizeInputSchema
+  lPageRectCoordsList: [PageRectCoordsInputSchema!]!
+  hPageRectCoordsList: [PageRectCoordsInputSchema!]!
+  elementList: [ElementInputSchema!]!
+  orderInPage: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizInputSchema {
+  quizId: String!
+  bookId: Float!
+  pageIndex: Float!
+  quizName: String!
+  answer: String!
+  score: Float
+  contentsAgeTypeId: Float!
+  contentsAgeType: ContentsAgeTypeInputSchema
+  subjectId: Float!
+  subject: SubjectInputSchema
+  quizCategoryId: Float!
+  quizCategory: QuizCategoryInputSchema
+  quizTypeId: String!
+  quizType: QuizTypeInputSchema
+  quizAnswerTypeId: String!
+  quizAnswerType: QuizAnswerTypeInputSchema
+  quizElement: QuizElementInputSchema
+  quizPaperList: [QuizPaperInputSchema!]!
+  solutionList: [SolutionInputSchema!]!
+  book: BookInputSchema
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizTypeInputSchema {
+  quizTypeId: String!
+  quizTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizAnswerTypeInputSchema {
+  quizAnswerTypeId: String!
+  quizAnswerTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizElementInputSchema {
+  quizId: String!
+  text: String!
+  lSize: SizeInputSchema
+  hSize: SizeInputSchema
+  lPageRectCoordsList: [PageRectCoordsInputSchema!]!
+  hPageRectCoordsList: [PageRectCoordsInputSchema!]!
+  answerBoxElement: AnswerBoxElementInputSchema
+  elementList: [ElementInputSchema!]!
+  orderInPage: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+input AnswerBoxElementInputSchema {
+  quizId: String!
+  lSize: SizeInputSchema
+  hSize: SizeInputSchema
+  lRectCoords: RectCoordsInputSchema
+  hRectCoords: RectCoordsInputSchema
+  lPageRectCoordsList: [PageRectCoordsInputSchema!] = []
+  hPageRectCoordsList: [PageRectCoordsInputSchema!] = []
+  selectorTypeId: Float!
+  selectorType: SelectorTypeInputSchema
+  answerSelectorElementList: [AnswerSelectorElementInputSchema!]!
+  targetFragmentOrder: Float! = 0
+  createdTime: Float
+  updatedTime: Float
+}
+
+input SelectorTypeInputSchema {
+  selectorTypeId: Float!
+  selectorTypeName: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input AnswerSelectorElementInputSchema {
+  quizId: String!
+  lSize: SizeInputSchema
+  hSize: SizeInputSchema
+  lRectCoords: RectCoordsInputSchema
+  hRectCoords: RectCoordsInputSchema
+  selectorNumber: Float!
+  selectorText: String!
+  text: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input QuizResultInputSchema {
+  userId: Float!
+  quizId: String!
+  bookId: Float
+  packageId: String
+  userAnswer: String
+  correct: Float
+  elapsedSeconds: Float
+  round: Float
+  periodNumber: Float
+  createdTime: Float
+  updatedTime: Float
+}
+
+input StarredQuizInputSchema {
+  userId: Float!
+  quizId: String!
+  packageId: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ArchiveQuizInputSchema {
+  userId: Float!
+  quizId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserQuizInputSchema {
+  userId: Float!
+  quizId: String!
+  quiz: QuizInputSchema
+  quizResultList: [QuizResultInputSchema!]!
+  starredQuiz: StarredQuizInputSchema
+  archiveQuiz: ArchiveQuizInputSchema
+}
+
+input PeriodInputSchema {
+  periodNumber: Float!
+  userId: Float!
+  bookId: Float
+  packageId: String
+  lastOpenedTime: Float
+  solvedTime: Float
+  elapsedSeconds: Float
+  isExam: Boolean
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserBookInputSchema {
+  userId: Float!
+  bookId: Float!
+  book: BookInputSchema
+  periodList: [PeriodInputSchema!]!
+}
+
+input ListPackagesWithUserOwnResponse_PackageWithUserOwnInputSchema {
+  package: PackageInputSchema
+  isUserOwn: Boolean!
+}
+
+input UserBundleInputSchema {
+  userId: Float!
+  quizId: String!
+  bundle: BundleInputSchema
+  quizResultList: [QuizResultInputSchema!]!
+  starredQuiz: StarredQuizInputSchema
+  archiveQuiz: ArchiveQuizInputSchema
+}
+
+input UserOwnPackageInputSchema {
+  userId: Float!
+  packageId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserOwnSolutionInputSchema {
+  userId: Float!
+  solutionId: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserPackageInputSchema {
+  userId: Float!
+  packageId: String!
+  package: PackageInputSchema
+  periodList: [PeriodInputSchema!]!
+}
+
+input SchoolSchemaInputSchema {
+  schoolId: Float!
+  schoolCode: Float
+  schoolName: String!
+  schoolType: String
+  establish: String
+  postalCode: String
+  address: String
+  telephone: String
+  homepage: String
+  highSchoolClassification: String
+  establishmentDate: String
+  schoolAnniversary: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+input CollegeInputSchema {
+  collegeId: Float!
+  interdisciplinary: String
+  establish: String
+  collegeName: String!
+  campusType: String
+  state: String
+  province: String
+  address: String
+  postalCode: String
+  telephone: String
+  homepage: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserInputSchema {
+  userId: Float = 0
+  userSso: [UserSsoInputSchema!]!
+  gender: Gender!
+  birth: String!
+  mobileNumber: String!
+  email: String!
+  userElementInfo: UserElementInfoInputSchema
+  userTermsAndPrivacy: UserTermsAndPrivacyInputSchema
+  userMarketingConsent: UserMarketingConsentInputSchema
+  userPassInfo: UserPassInfoInputSchema
+  lastLoginTime: Float = 0
+  status: Status = USABLE
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserSsoInputSchema {
+  platformType: PlatformType!
+  platformId: String!
+  userId: Float = 0
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserElementInfoInputSchema {
+  userId: Float = 0
+  userName: String!
+  nickname: String
+  profileImage: String
+  userStudentInfo: UserStudentInfoInputSchema
+  userCalendarList: [UserCalendarInputSchema!] = []
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserStudentInfoInputSchema {
+  userId: Float = 0
+  schoolId: Float!
+  school: SchoolSchemaInputSchema
+  admissionYear: String
+  studentGrade: Float
+  targetCollegeId: Float = 0
+  college: CollegeInputSchema
+  targetMajor: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserCalendarInputSchema {
+  userCalendarId: Float = 0
+  userId: Float = 0
+  date: String!
+  description: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserTermsAndPrivacyInputSchema {
+  userId: Float = 0
+  termsOfService: Boolean!
+  privacyPolicy: Boolean!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserMarketingConsentInputSchema {
+  userId: Float = 0
+  email: Boolean = true
+  sms: Boolean = true
+  push: Boolean = true
+  createdTime: Float
+  updatedTime: Float
+}
+
+input UserPassInfoInputSchema {
+  userId: Float = 0
+  plid: String!
+  ci: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BannerAreaInputSchema {
+  bannerAreaId: Float!
+  bannerAreaName: String!
+  size: SizeInputSchema
+  createdTime: Float
+  updatedTime: Float
+  bannerList: [BannerInputSchema!] = []
+}
+
+input BannerInputSchema {
+  bannerId: Float!
+  bannerAreaId: Float!
+  bannerType: Float
+  imageUrl: String
+  priorityNumber: Float!
+  startTime: Float!
+  endTime: Float!
+  bannerText: String
+  bannerAltText: String
+  landingTarget: String
+  webUrl: String
+  bannerTargetPlatformList: [BannerTargetPlatformInputSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BannerTargetPlatformInputSchema {
+  bannerId: Float!
+  targetPlatform: TargetPlatform!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input BookCountPerSubjectInputSchema {
+  subjectId: Float!
+  count: Float!
+}
+
+input MathcollectStatusInputSchema {
+  bookId: Float!
+  itemId: ID!
+  itemType: String!
+  isComplete: Boolean!
+  updatedTime: String
+}
+
+input AnswerSetInputSchema {
+  answerSetId: String!
+  bookId: Float!
+  pageIndex: Float!
+  answerSetName: String!
+  answerSetItemList: [AnswerSetItemInputSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input AnswerSetItemInputSchema {
+  name: String!
+  answer: String!
+}
+
+input UserUploadContentInputSchema {
+  userId: Float!
+  bookId: Float!
+  packageId: String
+  bookName: String!
+  uploadedTime: Float
+  packageCreatedTime: Float
+}
+
+input ConversionAccountInputSchema {
+  accountId: Float!
+  partnerId: Float!
+  role: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input OperatingActionRecordInputSchema {
+  recordId: Float!
+  accountId: Float!
+  partnerId: Float!
+  resourceType: String
+  actionType: String
+  data: String
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ConversionIssueInputSchema {
+  issueId: Float!
+  sender: Float!
+  receiver: Float!
+  message: String!
+  target: String!
+  status: String!
+  conversionIssueReplyList: [ConversionIssueReplyInputSchema!]!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ConversionIssueReplyInputSchema {
+  issueReplyId: Float = 0
+  issueId: Float!
+  sender: Float!
+  message: String!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input ReadIssueInputSchema {
+  issueId: Float!
+  accountId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PartnerOwnPackageInputSchema {
+  packageId: String!
+  partnerId: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+input PartnerPackageInputSchema {
+  partnerId: Float!
+  partnerName: String!
+  package: PackageInputSchema!
+}
+
+input PackageCountInputSchema {
+  packageId: String!
+  count: Float!
+  createdTime: Float
+  updatedTime: Float
+}
+
+type Query {
+  listBooks(listOption: ListOptionInputSchema): ListBooksResponseSchema!
+  listBookCountsPerSubject(listOption: ListOptionInputSchema): ListBookCountsPerSubjectResponseSchema!
+  getBookById(bookId: Float!): GetBookByIdResponseSchema!
+  getBookByMD5(md5: String!): GetBookByMD5ResponseSchema!
+  listPages(bookId: Float!, listOption: ListOptionInputSchema): ListPagesResponseSchema!
+  listPagesJoinElements(bookId: Float!, listOption: ListOptionInputSchema): ListPagesJoinElementsResponseSchema!
+  getPage(bookId: Float!, pageIndex: Float!): GetPageResponseSchema!
+  listQuizPapers(listOption: ListOptionInputSchema): ListQuizPapersResponseSchema!
+  getQuizPaperById(quizPaperId: String!): GetQuizPaperByIdResponseSchema!
+  listQuizPapersInBook(bookId: Float!, listOption: ListOptionInputSchema): ListQuizPapersInBookResponseSchema!
+  listQuizPapersInPage(bookId: Float!, pageIndex: Float!, listOption: ListOptionInputSchema): ListQuizPapersInPageResponseSchema!
+  listQuizPapersByQuizId(quizId: String!, listOption: ListOptionInputSchema): ListQuizPapersByQuizIdResponseSchema!
+  listQuizzes(listOption: ListOptionInputSchema): ListQuizzesResponseSchema!
+  listQuizzesInBook(bookId: Float!, listOption: ListOptionInputSchema): ListQuizzesInBookResponseSchema!
+  listQuizzesInPage(bookId: Float!, pageIndex: Float!, listOption: ListOptionInputSchema): ListQuizzesInPageResponseSchema!
+  getQuizById(quizId: String!): GetQuizByIdResponseSchema!
+  listElements(listOption: ListOptionInputSchema): ListElementsResponseSchema!
+  getElementById(elementId: Float!): GetElementByIdResponseSchema!
+  getMathcollectStatusByItemId(bookId: Float!, itemId: String!): MathcollectStatusSchema
+  listMathcollectStatuses(bookId: Float!): [MathcollectStatusSchema!]
+  listSolutions(listOption: ListOptionInputSchema): ListSolutionsResponseSchema!
+  listSolutionsInBook(bookId: Float!, listOption: ListOptionInputSchema): ListSolutionsInBookResponseSchema!
+  listSolutionsInPage(bookId: Float!, pageIndex: Float!, listOption: ListOptionInputSchema): ListSolutionsInPageResponseSchema!
+  listSolutionByQuizId(quizId: String!, listOption: ListOptionInputSchema): ListSolutionsByQuizIdResponseSchema!
+  getSolutionById(solutionId: String!): GetSolutionByIdResponseSchema!
+  getBookCategory(bookCategoryId: Float!): GetBookCategoryResponseSchema!
+  listBookCategories(listOption: ListOptionInputSchema): ListBookCategoriesResponseSchema!
+  getQuizCategory(quizCategoryId: Float!): GetQuizCategoryResponseSchema!
+  listQuizCategories(listOption: ListOptionInputSchema): ListQuizCategoriesResponseSchema!
+  getSubject(subjectId: Float!): GetSubjectResponseSchema!
+  listSubjects(listOption: ListOptionInputSchema): ListSubjectsResponseSchema!
+  getContentsAgeType(contentsAgeTypeId: Float!): GetContentsAgeTypeResponseSchema!
+  listContentsAgeTypes(listOption: ListOptionInputSchema): ListContentsAgeTypesResponseSchema!
+  getQuizType(quizTypeId: String!): GetQuizTypeResponseSchema!
+  listQuizTypes(listOption: ListOptionInputSchema): ListQuizTypesResponseSchema!
+  getQuizAnswerType(quizAnswerTypeId: String!): GetQuizAnswerTypeResponseSchema!
+  listQuizAnswerTypes(listOption: ListOptionInputSchema): ListQuizAnswerTypesResponseSchema!
+  getSelectorType(selectorTypeId: Float!): GetSelectorTypeResponseSchema!
+  listSelectorTypes(listOption: ListOptionInputSchema): ListSelectorTypesResponseSchema!
+  getAnswerSet(answerSetId: String!): GetAnswerSetResponseSchema!
+  listAnswerSetByBook(bookId: Float!, listOption: ListOptionInputSchema): ListAnswerSetByBookResponseSchema!
+  listUserUploadContent(listOption: ListOptionInputSchema): ListUserUploadContentResponseSchema!
+  getPartnerById(partnerId: Float!): GetPartnerByIdResponseSchema!
+  listPartners(listOption: ListOptionInputSchema): ListPartnersResponseSchema!
+  getAccountByEmail(accountEmail: String!): GetAccountByEmailResponseSchema!
+  getAccountByID(accountId: Float!): GetAccountByIDResponseSchema!
+  getAccountByEmailWithPassword(accountEmail: String!, accountPassword: String!): GetAccountByEmailWithPasswordResponseSchema!
+  listAccounts(listOption: ListOptionInputSchema): ListAccountsResponseSchema!
+  listPackagesOfPartner(partnerId: Float!, listOption: ListOptionInputSchema): ListPackagesOfPartnerResponseSchema!
+  listPartnerPackages(partnerPackageOption: PartnerPackageOptionInputSchema, listOption: ListOptionInputSchema): ListPartnerPackagesResponseSchema!
+  getEducatorByEmail(email: String!): GetEducatorByEmailResponseSchema!
+  listEducators(listOption: ListOptionInputSchema): ListEducatorsResponseSchema!
+  listEducatorsByPartnerID(partnerId: Float!, listOption: ListOptionInputSchema): ListEducatorsByPartnerIDResponseSchema!
+  ListPackagesOfEducator(educatorId: Float!, listOption: ListOptionInputSchema): ListPackagesOfEducatorResponseSchema!
+  getUserByID(userId: Float!): GetUserByIDResponseSchema!
+  listUsers(listOption: ListOptionInputSchema): ListUsersResponseSchema!
+  getSchoolByID(schoolId: Float!): GetSchoolByIDResponseSchema!
+  listSchools(listOption: ListOptionInputSchema): ListSchoolsResponseSchema!
+  getUserBook(userId: Float!, bookId: Float!): GetUserBookResponseSchema!
+  listBooksOfUser(userId: Float!, listOption: ListOptionInputSchema): ListBooksOfUserResponseSchema!
+  listUserBooks(userId: Float!, listOption: ListOptionInputSchema): ListUserBooksResponseSchema!
+  listQuizzesOfUser(userId: Float!, listOption: ListOptionInputSchema): ListQuizzesOfUserResponseSchema!
+  listUserQuizzesInBook(userId: Float!, bookId: Float!, listOption: ListOptionInputSchema): ListUserQuizzesInBookResponseSchema!
+  listUserQuizzesOfUser(userId: Float!, listOption: ListOptionInputSchema): ListUserQuizzesOfUserResponseSchema!
+  getAppVersionControlByID(appVersionControlId: Float!): GetAppVersionControlByIDResponseSchema!
+  getAppVersionControlByTarget(appVersion: String!): GetAppVersionControlByTargetResponseSchema!
+  listAppVersionControl(listOption: ListOptionInputSchema): ListAppVersionControlResponseSchema!
+  getUserBundle(userId: Float!, quizId: String!): GetUserBundleResponseSchema!
+  getUserPackage(userId: Float!, packageId: String!): GetUserPackageResponseSchema!
+  listUserPackages(userId: Float!, listOption: ListOptionInputSchema): ListUserPackagesResponseSchema!
+  listPackagesOfUser(userId: Float!, listOption: ListOptionInputSchema): ListPackagesOfUserResponseSchema!
+  listBundlesOfUser(userId: Float!, listOption: ListOptionInputSchema): ListBundlesOfUserResponseSchema!
+  listUserBundlesInPackage(userId: Float!, packageId: String!, listOption: ListOptionInputSchema): ListUserBundlesInPackageResponseSchema!
+  listUserBundlesOfUser(userId: Float!, listOption: ListOptionInputSchema): ListUserBundlesOfUserResponseSchema!
+  listUserOwnPackages(listOption: ListOptionInputSchema): ListUserOwnPackagesResponseSchema!
+  listUserOwnPackagesByUserID(userId: Float!, listOption: ListOptionInputSchema): ListUserOwnPackagesByUserIDResponseSchema!
+  appendUserOwnPackage(userOwnPackage: UserOwnPackageInputSchema): AppendUserOwnPackageResponseSchema!
+  batchCreateUserOwnPackages(userOwnPackageList: [UserOwnPackageInputSchema!]!): BatchCreateUserOwnPackagesResponseSchema!
+  batchDeleteUserOwnPackages(userIdList: [Float!]!, packageIdList: [String!]!): Boolean
+  listUserOwnSolutions(listOption: ListOptionInputSchema): ListUserOwnSolutionsResponseSchema!
+  appendUserOwnSolution(userOwnSolution: UserOwnSolutionInputSchema): AppendUserOwnSolutionResponseSchema!
+  batchCreateUserOwnSolutions(userOwnSolutionList: [UserOwnSolutionInputSchema!]!): BatchCreateUserOwnSolutionsResponseSchema!
+  listPeriodsByUserIDAndPackageID(userId: Float!, packageId: String!, listOption: ListOptionInputSchema): ListPeriodsByUserIDAndPackageIDResponseSchema!
+  listPackagesWithUserOwn(userId: Float!, listOption: ListOptionInputSchema): ListPackagesWithUserOwnResponseSchema!
+  listPackagesOfUserByUploader(uploaderId: Float!, uploaderType: String!, listOption: ListOptionInputSchema): ListPackagesOfUserByUploaderResponseSchema!
+  listUserPackagesOfClass(userId: Float!, classId: Float!, listOption: ListOptionInputSchema): ListUserPackagesOfClassResponseSchema!
+  listUserPackagesOfPartner(userId: Float!, partnerId: Float!, listOption: ListOptionInputSchema): ListUserPackagesOfPartnerResponseSchema!
+  listBannerAreas(listOption: ListOptionInputSchema): ListBannerAreasResponseSchema!
+  getBanner(bannerId: Float!): GetBannerResponseSchema!
+  listBanners(listOption: ListOptionInputSchema): ListBannersResponseSchema!
+  listBannersInTime(listOption: ListOptionInputSchema): ListBannersInTimeResponseSchema!
+  listConversionIssuesUnifiedSearch(listOption: ListOptionInputSchema): ListConversionIssuesUnifiedSearchResponseSchema!
+  getConversionAccountByID(accountId: Float = 0): GetConversionAccountByIDResponseSchema!
+  listConversionAccountsByPartner(partnerId: Float = 0, listOption: ListOptionInputSchema): ListConversionAccountsByPartnerResponseSchema!
+  getOperatingActionRecordByID(recordId: Float = 0): GetOperatingActionRecordByIDResponseSchema!
+  listOperatingActionRecordsByPartner(partnerId: Float = 0, listOption: ListOptionInputSchema): ListOperatingActionRecordsByPartnerResponseSchema!
+  getConversionIssue(issueId: Float = 0): GetConversionIssueResponseSchema!
+  listConversionIssuesByAccount(accountId: Float = 0, listOption: ListOptionInputSchema): ListConversionIssuesByAccountResponseSchema!
+  listReadIssuesByAccount(accountId: Float = 0, listOption: ListOptionInputSchema): ListReadIssuesByAccountResponseSchema!
+  getBinderByID(binderId: String!): GetBinderByIDResponseSchema!
+  listBinders(listOption: ListOptionInputSchema): ListBindersResponseSchema!
+  getBundleByQuizID(quizId: String!): GetBundleByQuizIDResponseSchema!
+  listBundles(listOption: ListOptionInputSchema): ListBundlesResponseSchema!
+  listBundlesByQuizIDs(quizIdList: [String!]!, listOption: ListOptionInputSchema): ListBundlesByQuizIDsResponseSchema!
+  listBundlesByPageID(pageId: String!, listOption: ListOptionInputSchema): ListBundlesByPageIDResponseSchema!
+  listBundlesByPackageID(packageId: String!): ListBundlesByPackageIDResponseSchema!
+  listBundlesByPackageIDsAndQuizIDs(packageIdList: [String!]!, quizIdList: [String!]!, listOption: ListOptionInputSchema): ListBundlesByPackageIDsAndQuizIDsResponseSchema!
+  isOKBundleResetStatus: Boolean!
+  getPackageByID(packageId: String!): GetPackageByIDResponseSchema!
+  listPackages(listOption: ListOptionInputSchema): ListPackagesResponseSchema!
+  listBookToPackageRecordsRequest(listOption: ListOptionInputSchema): ListBookToPackageRecordsResponseSchema!
+  getPbPageByPackageIDAndPageID(packageId: String!, pageId: String!): GetPbPageByPackageIDAndPageIDResponseSchema!
+  listPbPages(listOption: ListOptionInputSchema): ListPbPagesResponseSchema!
+  listPbPagesWithBundles(listOption: ListOptionInputSchema): ListPbPagesWithBundlesResponseSchema!
+  getMessage(messageId: String!, pageNumber: Float, numberPerPage: Float): GetMessageResponseSchema!
+  listMessages(pageNumber: Float, numberPerPage: Float, startDate: String, limitDay: Float): ListMessagesResponseSchema!
+  sendMessage(mobileNumber: String!, message: String!, destination: String, sender: String, title: String, imageUrl: String, reserveDay: String, reserveTime: String): SendMessageResponseSchema!
+  sendMassMessage(receiverList: [MessageReceiverInputSchema!]!, sender: String, title: String, imageUrl: String, reserveDay: String, reserveTime: String): SendMassMessageResponseSchema!
+  cancelMessage(messageId: String!): CancelMessageResponseSchema!
+  getMessageBalance: GetMessageBalanceResponseSchema!
+  getClassByID(classId: Float!): GetClassByIDResponseSchema!
+  listClasses(listOption: ListOptionInputSchema): ListClassesResponseSchema!
+  listClassesByUserID(userId: Float!, listOption: ListOptionInputSchema): ListClassesByUserIDResponseSchema!
+  listClassUsers(listOption: ListOptionInputSchema): ListClassUsersResponseSchema!
+  listClassUsersByClassID(classId: Float!, listOption: ListOptionInputSchema): ListClassUsersByClassIDResponseSchema!
+  listClassUsersByUserID(userId: Float!, listOption: ListOptionInputSchema): ListClassUsersByUserIDResponseSchema!
+  listClassAccounts(listOption: ListOptionInputSchema): ListClassAccountsResponseSchema!
+  listClassAccountsByClassID(classId: Float!, listOption: ListOptionInputSchema): ListClassAccountsByClassIDResponseSchema!
+  listClassAccountsByAccountID(accountId: Float!, listOption: ListOptionInputSchema): ListClassAccountsByAccountIDResponseSchema!
+  listClassPackages(listOption: ListOptionInputSchema): ListClassPackagesResponseSchema!
+  listClassPackagesByClassID(classId: Float!, listOption: ListOptionInputSchema): ListClassPackagesByClassIDResponseSchema!
+  listClassPackagesByPackageID(packageId: String!, listOption: ListOptionInputSchema): ListClassPackagesByPackageIDResponseSchema!
+  listClassExternalContentsByExternalIDs(externalContentsIdList: [String!]!, listOption: ListOptionInputSchema): ListClassExternalContentsByExternalIDsResponseSchema!
+  listClassExternalContents(listOption: ListOptionInputSchema): ListClassExternalContentsResponseSchema!
+  getClassExternalContents(classId: Float!): GetClassExternalContentsResponseSchema!
+  contentsRaw(rawQuery: String!): String!
+  rdsRaw(rawQuery: String!): String!
+  solveRaw(rawQuery: String!): String!
+  listPartnerOwnPackagesCustom: [PartnerOwnPackageSchema!]!
+  listPackageCountsCustom: [PackageCountSchema!]!
+  getPartnerOwnPackageByPackageIdCustom(packageId: String!): GetPartnerOwnPackageCustomResponseSchema!
+  verify(client: Client!, accessToken: String!, clientOrigin: ClientOriginInputSchema): VerifyResponseSchema!
+  getUserUniqueDeviceByUserID(userId: Float!): GetUserUniqueDeviceByUserIDResponseSchema!
+  listEducatorAccessRecordsByEducatorID(educatorId: Float!, listOption: ListOptionInputSchema): ListEducatorAccessRecordsByEducatorIDResponseSchema!
+  step1(base64: String!): DetectorResponseSchema!
+  step2(base64: String!): DetectorResponseSchema!
+  selector2(base64: String!): DetectorLabelResponseSchema!
+  treatmentRect(base64: String!): DetectorSingleResponseSchema!
+  getSid: String!
+  getSolverByUserId(userId: Float!): SolverSchema
+  listSolvers: [SolverSchema!]!
+  getSolveDrawingPNG(userId: Float!, id: String!): GetSolveDrawingPNGResponseSchema
+}
+
+input ListOptionInputSchema {
+  offset: Float
+  limit: Float
+  keyword: String
+  field: String
+  filter: [FilterInputSchema!] = []
+  inner: [InnerInputSchema!] = []
+  orderBy: [OrderByInputSchema!] = []
+}
+
+input PartnerPackageOptionInputSchema {
+  partnerIdList: [Float!]!
+  subjectIdList: [Float!]!
+}
+
+input MessageReceiverInputSchema {
+  mobileNumber: String!
+  message: String!
+}
+
+enum Client {
+  UNSPECIFIED
+  SOLVE
+  PARTNER
+  EDUCATOR
+}
+
+input ClientOriginInputSchema {
+  model: String
+  uniqueId: String
+  macAddress: String
+  ipAddress: String
+}
+
+type Mutation {
+  createBook(CreateBookRequestSchema: CreateBookRequestSchema!): CreateBookResponseSchema!
+  updateBook(UpdateBookRequestSchema: UpdateBookRequestSchema!): UpdateBookResponseSchema!
+  deleteBookById(DeleteBookByIdRequestSchema: DeleteBookByIdRequestSchema!): Boolean
+  upsertBookMD5(UpsertBookMD5RequestSchema: UpsertBookMD5RequestSchema!): UpsertBookMD5ResponseSchema!
+  deleteBookMD5(DeleteBookMD5RequestSchema: DeleteBookMD5RequestSchema!): Boolean
+  createPage(CreatePageRequestSchema: CreatePageRequestSchema!): CreatePageResponseSchema!
+  updatePage(UpdatePageRequestSchema: UpdatePageRequestSchema!): UpdatePageResponseSchema!
+  deletePage(DeletePageRequestSchema: DeletePageRequestSchema!): Boolean
+  attachQuizzesInQuizPaper(AttachQuizzesInQuizPaperRequestSchema: AttachQuizzesInQuizPaperRequestSchema!): AttachQuizzesInQuizPaperResponseSchema!
+  createQuizPaper(CreateQuizPaperRequestSchema: CreateQuizPaperRequestSchema!): CreateQuizPaperResponseSchema!
+  updateQuizPaper(UpdateQuizPaperRequestSchema: UpdateQuizPaperRequestSchema!): UpdateQuizPaperResponseSchema!
+  deleteQuizPaper(DeleteQuizPaperRequestSchema: DeleteQuizPaperRequestSchema!): Boolean
+  createQuiz(CreateQuizRequestSchema: CreateQuizRequestSchema!): CreateQuizResponseSchema!
+  updateQuiz(UpdateQuizRequestSchema: UpdateQuizRequestSchema!): UpdateQuizResponseSchema!
+  deleteQuiz(DeleteQuizRequestSchema: DeleteQuizRequestSchema!): Boolean
+  updateQuizzesSubjectIDByBookID(UpdateQuizzesSubjectIDByBookIDRequest: UpdateQuizzesSubjectIDByBookIDRequestSchema!): UpdateQuizzesSubjectIDByBookIDResponseSchema!
+  createElement(CreateElementRequestSchema: CreateElementRequestSchema!): CreateElementResponseSchema!
+  deleteElementById(DeleteElementByIdRequestSchema: DeleteElementByIdRequestSchema!): Boolean
+  updateElement(UpdateElementRequestSchema: UpdateElementRequestSchema!): UpdateElementResponseSchema!
+  upsertMathcollectStatus(UpsertMathcollectStatusSchema: UpsertMathcollectStatusSchema!): MathcollectStatusSchema!
+  createSolution(CreateSolutionRequestSchema: CreateSolutionRequestSchema!): CreateSolutionResponseSchema!
+  deleteSolution(DeleteSolutionRequestSchema: DeleteSolutionRequestSchema!): Boolean
+  updateSolution(UpdateSolutionRequestSchema: UpdateSolutionRequestSchema!): UpdateSolutionResponseSchema!
+  attachQuizzesInSolution(AttachQuizzesInSolutionRequestSchema: AttachQuizzesInSolutionRequestSchema!): AttachQuizzesInSolutionResponseSchema!
+  detachSolutionFromQuiz(DetachSolutionFromQuizRequestSchema: DetachSolutionFromQuizRequestSchema!): DetachSolutionFromQuizResponseSchema!
+  createBookCategory(createBookCategoryRequestSchema: CreateBookCategoryRequestSchema!): CreateBookCategoryResponseSchema!
+  updateBookCategory(updateBookCategoryRequestSchema: UpdateBookCategoryRequestSchema!): UpdateBookCategoryResponseSchema!
+  deleteBookCategory(deleteBookCategoryRequestSchema: DeleteBookCategoryRequestSchema!): Boolean
+  createQuizCategory(createQuizCategoryRequestSchema: CreateQuizCategoryRequestSchema!): CreateQuizCategoryResponseSchema!
+  updateQuizCategory(updateQuizCategoryRequestSchema: UpdateQuizCategoryRequestSchema!): UpdateQuizCategoryResponseSchema!
+  deleteQuizCategory(deleteQuizCategoryRequestSchema: DeleteQuizCategoryRequestSchema!): Boolean
+  createSubject(createSubjectRequestSchema: CreateSubjectRequestSchema!): CreateSubjectResponseSchema!
+  updateSubject(updateSubjectRequestSchema: UpdateSubjectRequestSchema!): UpdateSubjectResponseSchema!
+  deleteSubject(deleteSubjectRequestSchema: DeleteSubjectRequestSchema!): Boolean
+  createContentsAgeType(createContentsAgeTypeSchema: CreateContentsAgeTypeRequestSchema!): CreateContentsAgeTypeResponseSchema!
+  updateContentsAgeType(updateContentsAgeTypeSchema: UpdateContentsAgeTypeRequestSchema!): UpdateContentsAgeTypeResponseSchema!
+  deleteContentsAgeType(deleteContentsAgeTypeSchema: DeleteContentsAgeTypeRequestSchema!): Boolean
+  createQuizType(createQuizTypeRequestSchema: CreateQuizTypeRequestSchema!): CreateQuizTypeResponseSchema!
+  updateQuizType(updateQuizTypeRequestSchema: UpdateQuizTypeRequestSchema!): UpdateQuizTypeResponseSchema!
+  deleteQuizType(deleteQuizTypeRequestSchema: DeleteQuizTypeRequestSchema!): Boolean
+  createQuizAnswerType(createQuizAnswerTypeRequestSchema: CreateQuizAnswerTypeRequestSchema!): CreateQuizAnswerTypeResponseSchema!
+  updateQuizAnswerType(updateQuizAnswerTypeRequestSchema: UpdateQuizAnswerTypeRequestSchema!): UpdateQuizAnswerTypeResponseSchema!
+  deleteQuizAnswerType(deleteQuizAnswerTypeRequestSchema: DeleteQuizAnswerTypeRequestSchema!): Boolean
+  createSelectorType(createSelectorTypeRequestSchema: CreateSelectorTypeRequestSchema!): CreateSelectorTypeResponseSchema!
+  updateSelectorType(updateSelectorTypeRequestSchema: UpdateSelectorTypeRequestSchema!): UpdateSelectorTypeResponseSchema!
+  deleteSelectorType(deleteSelectorTypeRequestSchema: DeleteSelectorTypeRequestSchema!): Boolean
+  upsertAnswerSet(answerSet: AnswerSetInputSchema): UpsertAnswerSetResponseSchema!
+  deleteAnswerSet(answerSetId: String!): Boolean
+  deleteBookTableOfContents(bookTableOfContentsId: String!, bookId: Float!): Boolean
+  createPartner(createPartnerRequestSchema: CreatePartnerRequestSchema!): CreatePartnerResponseSchema!
+  updatePartner(updatePartnerRequestSchema: UpdatePartnerRequestSchema!): UpdatePartnerResponseSchema!
+  createAccount(createAccountRequestSchema: CreateAccountRequestSchema!): CreateAccountResponseSchema!
+  deleteAccountByID(deleteAccountByIDRequestSchema: DeleteAccountByIDRequestSchema!): Boolean
+  updateAccount(updateAccountRequestSchema: UpdateAccountRequestSchema!): UpdateAccountResponseSchema!
+  appendPartnerOwnPackage(partnerOwnPackage: PartnerOwnPackageInputSchema!): AppendPartnerOwnPackageResponseSchema!
+  deletePartnerOwnPackage(partnerId: Float!, packageId: String!): Boolean
+  createEducatorByEmail(email: String!): CreateEducatorByEmailResponseSchema!
+  updateEducator(educator: EducatorInputSchema): UpdateEducatorResponseSchema!
+  deleteEducatorByEmail(email: String!): Boolean
+  batchCreateEducatorAccessiblePartners(partnerIdList: [Float!]!, educatorIdList: [Float!]!): BatchCreateEducatorAccessiblePartnersResponseSchema!
+  deleteEducatorAccessiblePartner(partnerId: Float!, educatorId: Float!): Boolean!
+  createUser(CreateUserRequestSchema: CreateUserRequestSchema!): CreateUserResponseSchema!
+  deleteUser(DeleteUserByIDRequestSchema: DeleteUserByIDRequestSchema!): Boolean
+  updateUser(UpdateUserRequestSchema: UpdateUserRequestSchema!): UpdateUserResponseSchema!
+  batchUpdateUserStatus(BatchUpdateUserStatusRequestSchema: BatchUpdateUserStatusRequestSchema!): BatchUpdateUserStatusResponseSchema!
+  createSchool(CreateBookRequestSchema: CreateSchoolRequestSchema!): CreateSchoolResponseSchema!
+  deleteSchoolByID(DeleteSchoolByIDRequestSchema: DeleteSchoolByIDRequestSchema!): Boolean
+  updateSchool(UpdateSchoolRequestSchema: UpdateSchoolRequestSchema!): UpdateSchoolResponseSchema!
+  appendUserOwnBook(AppendUserOwnBookRequestSchema: AppendUserOwnBookRequestSchema!): Boolean
+  deleteUserOwnBook(DeleteUserOwnBookRequestSchema: DeleteUserOwnBookRequestSchema!): Boolean
+  batchDeleteUserOwnBooksByIDs(BatchDeleteUserOwnBooksByIDsRequestSchema: BatchDeleteUserOwnBooksByIDsRequestSchema!): Boolean
+  appendQuizResults(AppendQuizResultsRequestSchema: AppendQuizResultsRequestSchema!): AppendQuizResultsResponseSchema!
+  appendStarredQuizzes(AppendStarredQuizzesRequestSchema: AppendStarredQuizzesRequestSchema!): AppendStarredQuizzesResponseSchema!
+  deleteStarredQuizzesOfUser(DeleteStarredQuizzesOfUserRequestSchema: DeleteStarredQuizzesOfUserRequestSchema!): Boolean
+  appendArchiveQuizzes(AppendArchiveQuizzesRequestSchema: AppendArchiveQuizzesRequestSchema!): AppendArchiveQuizzesResponseSchema!
+  createPeriod(CreatePeriodRequestSchema: CreatePeriodRequestSchema!): Boolean
+  updatePeriod(UpdatePeriodRequestSchema: UpdatePeriodRequestSchema!): UpdatePeriodResponseSchema!
+  upsertAppVersionControl(appVersionControl: AppVersionControlInputSchema): UpsertAppVersionControlResponseSchema!
+  deleteAppVersionControl(appVersionControlId: Float!): DeleteAppVersionControlResponseSchema!
+  deleteUserOwnPackage(userId: Float!, packageId: String!): Boolean
+  deleteUserOwnSolution(userId: Float!, solutionId: String!): Boolean
+  appendBannerArea(appendBannerAreaRequestSchema: AppendBannerAreaRequestSchema!): AppendBannerAreaResponseSchema!
+  updateBannerArea(updateBannerAreaRequestSchema: UpdateBannerAreaRequestSchema!): UpdateBannerAreaResponseSchema!
+  saveBanners(saveBannersRequestSchema: SaveBannersRequestSchema!): SaveBannersResponseSchema!
+  createConversionAccount(conversionAccount: ConversionAccountInputSchema): CreateConversionAccountResponseSchema!
+  deleteConversionAccountByID(accountId: Float!): Boolean
+  updateConversionAccount(conversionAccount: ConversionAccountInputSchema): UpdateConversionAccountResponseSchema!
+  createOperatingActionRecord(operatingActionRecord: OperatingActionRecordInputSchema): CreateOperatingActionRecordResponseSchema!
+  batchCreateOperatingActionRecords(operatingActionRecordList: [OperatingActionRecordInputSchema!]!): BatchCreateOperatingActionRecordsResponseSchema!
+  createConversionIssue(conversionIssue: ConversionIssueInputSchema): CreateConversionIssueResponseSchema!
+  batchCreateConversionIssues(conversionIssueList: [ConversionIssueInputSchema!]!): BatchCreateConversionIssuesResponseSchema!
+  updateConversionIssue(conversionIssue: ConversionIssueInputSchema): UpdateConversionIssueResponseSchema!
+  deleteConversionIssue(issueId: Float!): Boolean
+  markReadIssue(issueId: Float = 0, accountId: Float = 0): MarkReadIssueResponseSchema!
+  createBinder(binder: BinderInputSchema): CreateBinderResponseSchema!
+  updateBinder(binder: BinderInputSchema): UpdateBinderResponseSchema!
+  deleteBinderByID(binderId: String!): Boolean
+  createBundle(bundle: BundleInputSchema): CreateBundleResponseSchema!
+  updateBundle(bundle: BundleInputSchema): UpdateBundleResponseSchema!
+  deleteBundleByQuizID(quizId: String!): Boolean
+  attachQuizPaperToBundle(quizId: String!, quizPaperId: String!): AttachQuizPaperToBundleResponseSchema!
+  attachSolutionToBundle(quizId: String!, solutionId: String!): AttachSolutionToBundleResponseSchema!
+  detachQuizPaperFromBundle(quizId: String!, quizPaperId: String!): DetachQuizPaperFromBundleResponseSchema!
+  detachSolutionFromBundle(quizId: String!, solutionId: String!): DetachSolutionFromBundleResponseSchema!
+  resetBundlesByPackageID(packageId: String!): Boolean
+  resetAllBundles: Boolean
+  createPackage(package: PackageInputSchema): CreatePackageResponseSchema!
+  updatePackage(package: PackageInputSchema): UpdatePackageResponseSchema!
+  deletePackageByID(packageId: String!): Boolean
+  convertBookToPackageByBookID(bookId: Float!, partnerId: Float): ConvertBookToPackageByBookIDResponseSchema!
+  createPbPage(pbPage: PbPageInputSchema): CreatePbPageResponseSchema!
+  updatePbPage(pbPage: PbPageInputSchema): UpdatePbPageResponseSchema!
+  deletePbPageByPackageIDAndPageID(packageId: String!, pageId: String!): Boolean
+  createClass(class: ClassInputSchema): CreateClassResponseSchema!
+  updateClass(class: ClassInputSchema): UpdateClassResponseSchema!
+  deleteClass(classId: Float!): Boolean
+  appendClassUsers(classUserList: [ClassUserInputSchema!]!): AppendClassUsersResponseSchema!
+  deleteClassUser(classId: Float!, userId: Float!): Boolean
+  appendClassAccounts(classAccountList: [ClassAccountInputSchema!]!): AppendClassAccountsResponseSchema!
+  deleteClassAccount(classId: Float!, accountId: Float!): Boolean
+  appendClassPackages(classPackageList: [ClassPackageInputSchema!]!): AppendClassPackagesResponseSchema!
+  deleteClassPackage(classId: Float!, packageId: String!): Boolean
+  updateClassExternalContents(classExternalContents: ClassExternalContentsInputSchema!): UpdateClassExternalContentsResponseSchema!
+  deleteClassExternalContents(classId: Float!): Boolean
+  createClassExternalContents(classExternalContents: ClassExternalContentsInputSchema!): CreateClassExternalContentsResponseSchema!
+  createToken(client: Client!, id: Float!, clientOrigin: ClientOriginInputSchema): CreateTokenResponseSchema!
+  refreshAccessToken(client: Client!, refreshToken: String!, clientOrigin: ClientOriginInputSchema): RefreshAccessTokenResponseSchema!
+  deleteToken(client: Client!, refreshToken: String!): Boolean!
+  deleteTokensByID(client: Client!, id: Float!): Boolean!
+  deleteUserUniqueDeviceByUserID(userId: Float!): Boolean!
+  requestEmailVerificationCode(email: String!): Boolean!
+  confirmEmailVerificationCode(email: String!, verificationCode: String!): Boolean!
+  login(loginRequestSchema: LoginRequestSchema!): LoginResponseSchema!
+  educatorLogin(educator: EducatorInputSchema, email: String!, verificationCode: String!): EducatorLoginResponseSchema!
+}
+
+input CreateBookRequestSchema {
+  bookName: String!
+  displayName: String!
+  bookCategory: BookCategoryInputSchema
+  subject: SubjectInputSchema
+  isbn: String
+  issn: String
+  pubDate: String
+  pubEdition: String
+  numOfPages: String
+  author: String
+  publisher: String
+  description: String
+  size: SizeInputSchema
+  bookStatus: Float
+  bookType: Float
+  contentsAgeType: ContentsAgeTypeInputSchema
+}
+
+input UpdateBookRequestSchema {
+  book: BookInputSchema
+}
+
+input DeleteBookByIdRequestSchema {
+  bookId: Float!
+}
+
+input UpsertBookMD5RequestSchema {
+  md5: String!
+  bookId: Float!
+}
+
+input DeleteBookMD5RequestSchema {
+  bookId: Float!
+}
+
+input CreatePageRequestSchema {
+  page: PageInputSchema
+}
+
+input UpdatePageRequestSchema {
+  page: PageInputSchema
+}
+
+input DeletePageRequestSchema {
+  bookId: Float!
+  pageIndex: Float!
+}
+
+input AttachQuizzesInQuizPaperRequestSchema {
+  quizPaperId: String!
+  quizIdList: [String!]!
+}
+
+input CreateQuizPaperRequestSchema {
+  quizPaper: QuizPaperInputSchema
+}
+
+input UpdateQuizPaperRequestSchema {
+  quizPaper: QuizPaperInputSchema
+}
+
+input DeleteQuizPaperRequestSchema {
+  quizPaperId: String!
+}
+
+input CreateQuizRequestSchema {
+  quiz: QuizInputSchema
+}
+
+input UpdateQuizRequestSchema {
+  quiz: QuizInputSchema
+}
+
+input DeleteQuizRequestSchema {
+  quizId: String!
+}
+
+input UpdateQuizzesSubjectIDByBookIDRequestSchema {
+  bookId: Float!
+}
+
+input CreateElementRequestSchema {
+  elementType: String!
+  elementValue: String!
+  ownerId: String!
+  ownerType: String!
+  size: SizeInputSchema
+  rectCoords: RectCoordsInputSchema
+}
+
+input DeleteElementByIdRequestSchema {
+  elementId: Float!
+}
+
+input UpdateElementRequestSchema {
+  element: ElementInputSchema
+}
+
+input UpsertMathcollectStatusSchema {
+  status: MathcollectStatusInputSchema!
+}
+
+input CreateSolutionRequestSchema {
+  solution: SolutionInputSchema
+}
+
+input DeleteSolutionRequestSchema {
+  solutionId: String!
+}
+
+input UpdateSolutionRequestSchema {
+  solution: SolutionInputSchema
+}
+
+input AttachQuizzesInSolutionRequestSchema {
+  solutionId: String!
+  quizIdList: [String!]!
+}
+
+input DetachSolutionFromQuizRequestSchema {
+  solutionId: String!
+  quizId: String!
+}
+
+input CreateBookCategoryRequestSchema {
+  bookCategory: BookCategoryInputSchema
+}
+
+input UpdateBookCategoryRequestSchema {
+  bookCategory: BookCategoryInputSchema
+}
+
+input DeleteBookCategoryRequestSchema {
+  bookCategoryId: Float!
+}
+
+input CreateQuizCategoryRequestSchema {
+  quizCategory: QuizCategoryInputSchema
+}
+
+input UpdateQuizCategoryRequestSchema {
+  quizCategory: QuizCategoryInputSchema
+}
+
+input DeleteQuizCategoryRequestSchema {
+  quizCategoryId: Float!
+}
+
+input CreateSubjectRequestSchema {
+  subject: SubjectInputSchema
+}
+
+input UpdateSubjectRequestSchema {
+  subject: SubjectInputSchema
+}
+
+input DeleteSubjectRequestSchema {
+  subjectId: Float!
+}
+
+input CreateContentsAgeTypeRequestSchema {
+  contentsAgeType: ContentsAgeTypeInputSchema
+}
+
+input UpdateContentsAgeTypeRequestSchema {
+  contentsAgeType: ContentsAgeTypeInputSchema
+}
+
+input DeleteContentsAgeTypeRequestSchema {
+  contentsAgeTypeId: Float!
+}
+
+input CreateQuizTypeRequestSchema {
+  quizType: QuizTypeInputSchema
+}
+
+input UpdateQuizTypeRequestSchema {
+  quizType: QuizTypeInputSchema
+}
+
+input DeleteQuizTypeRequestSchema {
+  quizTypeId: String!
+}
+
+input CreateQuizAnswerTypeRequestSchema {
+  quizAnswerType: QuizAnswerTypeInputSchema
+}
+
+input UpdateQuizAnswerTypeRequestSchema {
+  quizAnswerType: QuizAnswerTypeInputSchema
+}
+
+input DeleteQuizAnswerTypeRequestSchema {
+  quizAnswerTypeId: String!
+}
+
+input CreateSelectorTypeRequestSchema {
+  selectorType: SelectorTypeInputSchema
+}
+
+input UpdateSelectorTypeRequestSchema {
+  selectorType: SelectorTypeInputSchema
+}
+
+input DeleteSelectorTypeRequestSchema {
+  selectorTypeId: Float!
+}
+
+input CreatePartnerRequestSchema {
+  partner: PartnerInputSchema!
+}
+
+input UpdatePartnerRequestSchema {
+  partner: PartnerInputSchema!
+}
+
+input CreateAccountRequestSchema {
+  account: AccountInputSchema!
+}
+
+input DeleteAccountByIDRequestSchema {
+  accountId: Float!
+}
+
+input UpdateAccountRequestSchema {
+  account: AccountInputSchema!
+}
+
+input CreateUserRequestSchema {
+  user: UserInputSchema
+}
+
+input DeleteUserByIDRequestSchema {
+  userId: Float!
+}
+
+input UpdateUserRequestSchema {
+  user: UserInputSchema
+}
+
+input BatchUpdateUserStatusRequestSchema {
+  userIdList: [Float!]!
+  status: Status!
+}
+
+input CreateSchoolRequestSchema {
+  school: SchoolSchemaInputSchema
+}
+
+input DeleteSchoolByIDRequestSchema {
+  schoolId: Float!
+}
+
+input UpdateSchoolRequestSchema {
+  school: SchoolSchemaInputSchema
+}
+
+input AppendUserOwnBookRequestSchema {
+  userId: Float!
+  bookId: Float!
+}
+
+input DeleteUserOwnBookRequestSchema {
+  userId: Float!
+  bookId: Float!
+}
+
+input BatchDeleteUserOwnBooksByIDsRequestSchema {
+  userId: Float!
+  bookIdList: [Float!]! = []
+}
+
+input AppendQuizResultsRequestSchema {
+  quizResultList: [QuizResultInputSchema!]! = []
+}
+
+input AppendStarredQuizzesRequestSchema {
+  starredQuizList: [StarredQuizInputSchema!]! = []
+}
+
+input DeleteStarredQuizzesOfUserRequestSchema {
+  starredQuizList: [StarredQuizInputSchema!]! = []
+}
+
+input AppendArchiveQuizzesRequestSchema {
+  archiveQuizList: [ArchiveQuizInputSchema!]! = []
+}
+
+input CreatePeriodRequestSchema {
+  period: PeriodInputSchema!
+}
+
+input UpdatePeriodRequestSchema {
+  period: PeriodInputSchema!
+}
+
+input AppendBannerAreaRequestSchema {
+  bannerArea: BannerAreaInputSchema
+}
+
+input UpdateBannerAreaRequestSchema {
+  bannerArea: BannerAreaInputSchema
+}
+
+input SaveBannersRequestSchema {
+  bannerAreaId: Float!
+  bannerList: [BannerInputSchema!]!
+}
+
+input LoginRequestSchema {
+  accountEmail: String!
+  accountPassword: String!
+}

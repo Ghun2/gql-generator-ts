@@ -1,0 +1,45 @@
+import { gql } from '@apollo/client';
+export const MUTATION = gql`mutation login($loginRequestSchema: LoginRequestSchema!){
+    login(loginRequestSchema: $loginRequestSchema){
+        account{
+            accountId
+            partnerId
+            partner{
+                partnerId
+                partnerCode
+                partnerType
+                partnerName
+                displayName
+                partnerBasicInfo{
+                    partnerId
+                    address
+                    officeNumber
+                    businessRegistrationNumber
+                    website
+                    createdTime
+                    updatedTime
+                }
+                partnerElementInfo{
+                    partnerId
+                    thumbnail
+                    createdTime
+                    updatedTime
+                }
+                createdTime
+                updatedTime
+            }
+            accountEmail
+            accountPassword
+            personalName
+            mobileNumber
+            role
+            createdTime
+            updatedTime
+        }
+        token{
+            accessToken
+            issuedTime
+            refreshToken
+        }
+    }
+}`
