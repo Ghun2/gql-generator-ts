@@ -1,0 +1,47 @@
+import { gql } from '@apollo/client';
+export const QUERY = gql`query listBundlesByPackageIDsAndQuizIDs($packageIdList: [String!]!, $quizIdList: [String!]!, $listOption: ListOptionInputSchema){
+    listBundlesByPackageIDsAndQuizIDs(packageIdList: $packageIdList, quizIdList: $quizIdList, listOption: $listOption){
+        bundleList{
+            quizId
+            pbQuiz{
+                quizId
+                bookId
+                pageIndex
+                quizName
+                answer
+                score
+                contentsAgeTypeId
+                subjectId
+                quizTypeId
+                quizAnswerTypeId
+                createdTime
+                updatedTime
+            }
+            pbQuizPaperList{
+                quizPaperId
+                createdTime
+                updatedTime
+            }
+            pbSolutionList{
+                solutionId
+                solutionName
+                answer
+                createdTime
+                updatedTime
+            }
+            attachmentList{
+                attachmentId
+                attachmentTypeId
+                createdTime
+                updatedTime
+            }
+            source{
+                packageId
+                pageId
+                binderId
+                packageIndex
+            }
+        }
+        listLength
+    }
+}`

@@ -177,10 +177,6 @@ function main ({
    * @param description description of the current object
    */
   const generateFile = (obj, description) => {
-    if (description === 'Mutation') {
-      console.log(gqlSchema.getType(description).getFields()['updateQuiz'])
-      console.log(obj.updateQuiz)
-    }
     let indexJs = 'const fs = require(\'fs\');\nconst path = require(\'path\');\n\n';
     let outputFolderName;
     switch (true) {
@@ -209,7 +205,6 @@ function main ({
       const field = gqlSchema.getType(description).getFields()[type];
       /* Only process non-deprecated queries/mutations: */
       if (includeDeprecatedFields || !field.deprecationReason) {
-        console.log(type, description)
         const queryResult = generateQuery(type, description);
         const varsToTypesStr = getVarsToTypesStr(queryResult.argumentsDict);
         let query = queryResult.queryStr;

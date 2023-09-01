@@ -1,0 +1,48 @@
+import { gql } from '@apollo/client';
+export const MUTATION = gql`mutation updatePage($UpdatePageRequestSchema: UpdatePageRequestSchema!){
+    updatePage(UpdatePageRequestSchema: $UpdatePageRequestSchema){
+        page{
+            bookId
+            pageIndex
+            pageId
+            pageName
+            pageElement{
+                bookId
+                pageIndex
+                lSize{
+                    height
+                    width
+                }
+                hSize{
+                    height
+                    width
+                }
+                elementList{
+                    elementId
+                    elementType
+                    elementValue
+                    ownerId
+                    ownerType
+                    size{
+                        height
+                        width
+                    }
+                    rectCoords{
+                        coords
+                        fragmentOrderNumber
+                        fragmentCoords{
+                            coords
+                            fragmentOrderNumber
+                        }
+                    }
+                    createdTime
+                    updatedTime
+                }
+                createdTime
+                updatedTime
+            }
+            createdTime
+            updatedTime
+        }
+    }
+}`
