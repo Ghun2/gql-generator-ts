@@ -11,14 +11,14 @@ const camelToUnderscore = (key) => {
 };
 
 function main ({
-  schemaFilePath,
-  destDirPath,
-  depthLimit = 100,
-  includeDeprecatedFields = false,
-  fileExtension,
-  assumeValid,
-  includeCrossReferences = false,
-} = {}) {
+                 schemaFilePath,
+                 destDirPath,
+                 depthLimit = 100,
+                 includeDeprecatedFields = false,
+                 fileExtension,
+                 assumeValid,
+                 includeCrossReferences = false,
+               } = {}) {
   let assume = false;
   if (assumeValid === 'true') {
     assume = true;
@@ -106,7 +106,21 @@ function main ({
     let queryStr = '';
     let childQuery = '';
 
+
+
+
+
     if (curType.getFields) {
+      if(curDepth > depthLimit) return { queryStr, argumentsDict }
+      /**
+       * @HARD_CODED_DEPTH
+       * 이건 카테고리 한정으로 적용 (maxDepth가 4기 때문)
+       * **/
+      const CATEGORY_MAX_DEPTH = 6
+      if(curTypeName  ==='CategorySchema' && curDepth > CATEGORY_MAX_DEPTH) {
+
+        return { queryStr, argumentsDict }
+      }
       // const crossReferenceKey = `${curParentName}To${curName}Key`;
       // if (
       //   (!includeCrossReferences && crossReferenceKeyList.indexOf(crossReferenceKey) !== -1)
