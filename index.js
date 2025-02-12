@@ -117,10 +117,11 @@ function main ({
        * 이건 카테고리 한정으로 적용 (maxDepth가 4기 때문)
        * **/
       const CATEGORY_MAX_DEPTH = 6
-      if(curTypeName  ==='CategorySchema' && curDepth > CATEGORY_MAX_DEPTH) {
+      if(curTypeName  ==='ProductCategorySchema' && curDepth > CATEGORY_MAX_DEPTH) {
 
         return { queryStr, argumentsDict }
       }
+
       // const crossReferenceKey = `${curParentName}To${curName}Key`;
       // if (
       //   (!includeCrossReferences && crossReferenceKeyList.indexOf(crossReferenceKey) !== -1)
